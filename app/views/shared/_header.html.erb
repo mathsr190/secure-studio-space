@@ -1,0 +1,14 @@
+<header class='top-page-header'>
+  <div class='nav'>
+    <p>ヘッダー</p>
+    <ul>
+      <% if manager_signed_in? %>
+        <li><%= link_to "#{current_manager.studio_name} 様ログイン中", "#", class: "studio-name" %></li>
+        <li><%= link_to 'ログアウト', destroy_manager_session_path, method: :delete, class: "logout" %> </li> 
+      <% else %>
+        <li><%= link_to 'スタジオ管理者ログイン', new_manager_session_path, class: "login" %></li>
+        <li><%= link_to 'スタジオ新規登録', new_manager_registration_path, class: "sign-up" %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
