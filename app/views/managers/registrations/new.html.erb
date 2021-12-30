@@ -3,24 +3,21 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "managers/shared/error_messages", resource: resource %>
 
-
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_area :studio_name, placeholder:"スタジオ名" %>
+    <span>ログイン時に使います</span><br />
+    <%= f.email_field :email, autofocus: true %>
   </div>
 
     <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_area :studio_name_kana, placeholder:"スタジオ名(よみ)" %>
+    <%= f.label :"スタジオ名" %><br />
+    <%= f.text_area :studio_name, placeholder:"例)芸術館" %>
   </div>
 
-
-
+    <div class="field">
+    <%= f.label :"スタジオ名(かな)" %><br />
+    <%= f.text_area :studio_name_kana, placeholder:"例)げいじゅつかん" %>
+  </div>
 
   <div class="field">
     <%= f.label :password %>
@@ -36,7 +33,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign upppppppp" %>
+    <%= f.submit "Sign up" %>
   </div>
 <% end %>
 
