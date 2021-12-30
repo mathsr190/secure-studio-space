@@ -1,0 +1,42 @@
+* {
+}
+
+.top-page-header {
+  width: 100vw;
+  padding: 2vh 10vw;
+  display: flex;
+  background-color: pink;
+}
+
+.nav {
+  font-size: 18px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0;
+}
+
+.studio-name {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-weight: bold;
+}
+
+
+.logout {
+  text-decoration: none;
+  color: #333333;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: #333333;
+}
