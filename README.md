@@ -54,7 +54,6 @@
 | Column            | Type    | Options                   |
 | ----------------- | ------- | ------------------------- |
 | email             | string  | null: false, unique: true |
-| encypted_password | string  | null: false               |
 | group_name        | string  | null: false               |
 | group_name_kana   | string  | null: false               |
 | last_name         | string  | null: false               |
@@ -88,8 +87,8 @@
 ## reservation_detailsテーブル
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| time_start    | string     | null: false                    |
-| time_end      | integer    | null: false                    |
+| time_start    | datetime   | null: false                    |
+| time_end      | datetime   | null: false                    |
 | price         | integer    | null: false                    |
 | reservation   | references | null: false, foreign_key: true |
 
