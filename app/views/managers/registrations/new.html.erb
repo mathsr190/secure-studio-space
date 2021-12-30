@@ -4,7 +4,7 @@
   <%= render "managers/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true %>
   </div>
 
@@ -19,7 +19,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> characters minimum)英字と数字の両方を含めて設定してください</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
