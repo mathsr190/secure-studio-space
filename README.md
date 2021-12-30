@@ -1,24 +1,97 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## managersテーブル
+| Column            | Type   | Options                   |
+| ----------------- | ------ | ------------------------- |
+| email             | string | null: false, unique: true |
+| studio_name       | string | null: false               |
+| studio_name_kana  | string | null: false               |
 
-Things you may want to cover:
+### Association
+- has_one :studio
 
-* Ruby version
 
-* System dependencies
+## studiosテーブル
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| introduction         | text       | null: false                    |
+| prefecture_id        | integer    | null: false                    |
+| postal_code          | string     | null: false                    |
+| address              | string     | null: false                    |
+| access               | string     | null: false                    |
+| business_day_id      | text       | null: false                    |
+| business_hours_start | time       | null: false                    |
+| business_hours_end   | time       | null: false                    |
+| phone_number         | string     | null: false                    |
+| manager              | references | null: false, foreign_key: true |
 
-* Configuration
+### Association
+- belongs_to :manager
+- has_many :spaces
 
-* Database creation
 
-* Database initialization
+## spacesテーブル
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| introduction         | text       | null: false                    |
+| space_name           | string     | null: false                    |
+| space_name_kana      | string     | null: false                    |
+| length               | integer    | null: false                    |
+| width                | integer    | null: false                    |
+| size                 | integer    | null: false                    |
+| height               | integer    | null: false                    |
+| fee_morning          | integer    | null: false                    |
+| fee_day              | integer    | null: false                    |
+| fee_night            | integer    | null: false                    |
+| studio               | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
+- belongs_to :studio
+- has_many :reservations
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## usersテーブル
+| Column            | Type    | Options                   |
+| ----------------- | ------- | ------------------------- |
+| email             | string  | null: false, unique: true |
+| encypted_password | string  | null: false               |
+| group_name        | string  | null: false               |
+| group_name_kana   | string  | null: false               |
+| last_name         | string  | null: false               |
+| first_name        | string  | null: false               |
+| last_name_kana    | string  | null: false               |
+| first_name_kana   | string  | null: false               |
+| date_of_birth     | date    | null: false               |
+| phone_number      | string  | null: false               |
+| postal_code       | string  | null: false               |
+| prefecture_id     | integer | null: false               |
+| city              | string  | null: false               |
+| address           | string  | null: false               |
+| building          | string  |                           |
 
-* ...
+### Association
+- has_many :reservations
+
+
+## reservationsテーブル
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| space  | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :space
+- belongs_to :user
+- has_one :reservation_detail
+
+
+## reservation_detailsテーブル
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| time_start    | string     | null: false                    |
+| time_end      | integer    | null: false                    |
+| price         | integer    | null: false                    |
+| reservation   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :reservation
