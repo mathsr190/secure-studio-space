@@ -5,17 +5,14 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <span>ログイン時に使います</span><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-    <div class="field">
-    <%= f.label :"スタジオ名" %><br />
+  <div class="field">
     <%= f.text_area :studio_name, placeholder:"例)芸術館" %>
   </div>
 
-    <div class="field">
-    <%= f.label :"スタジオ名(かな)" %><br />
+  <div class="field">
     <%= f.text_area :studio_name_kana, placeholder:"例)げいじゅつかん" %>
   </div>
 
