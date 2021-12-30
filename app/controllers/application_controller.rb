@@ -3,11 +3,6 @@ class ApplicationController < ActionController::Base
 
   private
   def configure_permitted_parameters
-    case resource
-    when Manager
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:studio_name, :studio_name_kana])
-    when User
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:hoge])
-    end
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:studio_name, :studio_name_kana, :hoge])
   end
 end
