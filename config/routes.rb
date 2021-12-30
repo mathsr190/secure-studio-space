@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'studios/index'
   devise_for :managers
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: "studios#index"
 end
