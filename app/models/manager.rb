@@ -10,4 +10,5 @@ class Manager < ApplicationRecord
     validates :studio_name
     validates :studio_name_kana, format: { with: /\A[ぁ-んー－]+\z/ }
   end
+  has_one :studio, dependent: :destroy
 end

@@ -1,0 +1,12 @@
+<%= render "shared/second-header" %>
+
+<h2>マイページだよ</h2>
+
+
+
+
+<% if current_manager.studio == nil%>
+  <span>nilだって</span>
+<% else %>
+  <span>nilじゃないって</span>
+<% end %>
