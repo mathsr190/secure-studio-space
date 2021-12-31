@@ -5,7 +5,8 @@
 <div>郵便番号</div>
 <%= f.text_field :postal_code, id:"postal-code", placeholder:"例)123-4567", maxlength:"8"%>
 <div>都道府県</div> <%#直す%>
-<%= f.text_field :prefecture_id, id:"prefecture-id", placeholder:"都道府県"%>
+<%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"},{id:"prefecture"})%>
+
 <div>市区町村</div>
 <%= f.text_field :city, id:"city", placeholder:"豊島区"%>
 <div>それ以降の住所</div>
@@ -13,7 +14,7 @@
 <div>アクセス</div>
 <%= f.text_field :access, id:"access", placeholder:"JR池袋駅北口から徒歩2分"%>
 <div>営業日</div>
-<%= f.text_field :business_day, id:"business-day"%>
+<%= f.collection_check_boxes(:business_day, BusinessDay.all, :id, :name, {},{id:"business-day-id"})%>
 <div>営業開始時間</div>
 <%= f.time_field :business_hours_start, id:"business-hours-start"%>
 <div>営業終了時間</div>
