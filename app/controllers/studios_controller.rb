@@ -36,7 +36,7 @@ class StudiosController < ApplicationController
 
   private
   def studio_params
-    params.require(:studio).permit(:introduction, :postal_code, :prefecture_id, :city, :address, :access, :business_day, :business_hours_start, :business_hours_end, :phone_number).merge(manager_id: current_manager.id)
+    params.require(:studio).permit(:introduction, :postal_code, :prefecture_id, :city, :address, :access, :business_hours_start, :business_hours_end, :phone_number, {:bday_ids => []}).merge(manager_id: current_manager.id)
   end
 
   def move_to_index

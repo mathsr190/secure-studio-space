@@ -4,7 +4,7 @@
 <%= f.text_area :introduction, id:"introduction", placeholder:"紹介文(必須 140文字まで)", maxlength:"140"%>
 <div>郵便番号</div>
 <%= f.text_field :postal_code, id:"postal-code", placeholder:"例)123-4567", maxlength:"8"%>
-<div>都道府県</div> <%#直す%>
+<div>都道府県</div>
 <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"},{id:"prefecture"})%>
 
 <div>市区町村</div>
@@ -14,7 +14,7 @@
 <div>アクセス</div>
 <%= f.text_field :access, id:"access", placeholder:"JR池袋駅北口から徒歩2分"%>
 <div>営業日</div>
-<%= f.collection_check_boxes(:business_day, BusinessDay.all, :id, :name, {},{id:"business-day-id"})%>
+<%= f.collection_check_boxes(:bday_ids, Bday.all, :id, :name, {include_hidden: false}, {id:"bday-ids"})%>
 <div>営業開始時間</div>
 <%= f.time_field :business_hours_start, id:"business-hours-start"%>
 <div>営業終了時間</div>
