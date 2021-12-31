@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_12_31_004826) do
     t.string "city", null: false
     t.string "address", null: false
     t.string "access", null: false
-    t.text "business_day_id", null: false
+    t.text "business_day", null: false
     t.time "business_hours_start", null: false
     t.time "business_hours_end", null: false
     t.string "phone_number", null: false
