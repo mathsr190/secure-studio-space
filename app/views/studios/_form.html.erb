@@ -1,4 +1,4 @@
-<%= form_with model: @studio, url: studios_path, local: true do |f| %>
+<%= form_with model: @studio, local: true do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
 <div>紹介文</div>
 <%= f.text_area :introduction, id:"introduction", placeholder:"紹介文(必須 140文字まで)", maxlength:"140"%>
@@ -21,5 +21,5 @@
 <div>電話番号</div>
 <%= f.text_field :phone_number, id:"phone-number", placeholder:"例)09012345678", maxlength:"11"%>
 <br/>
-<%= f.submit "作成", id:"button"%>
+<%= f.submit "登録", id:"button"%>
 <% end %>

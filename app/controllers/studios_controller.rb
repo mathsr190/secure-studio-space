@@ -18,11 +18,20 @@ class StudiosController < ApplicationController
   end
 
   def edit
+    @studio = Studio.find(params[:id])
   end
 
   def show
-    @manager = current_manager
-    @studio = @manager.studio
+    @studio = current_manager.studio
+  end
+
+  def update
+    @studio = current_manager.studio
+    if @studio.update(studio_params)
+      redirect_to studio_path(current_manager.id)
+    else
+      render :edit
+    end
   end
 
   private
