@@ -1,5 +1,6 @@
 class StudiosController < ApplicationController
   before_action :authenticate_manager!, only: [:new, :edit]
+  before_action :move_to_index, only: [:new]
   def index
   end
 
@@ -27,5 +28,10 @@ class StudiosController < ApplicationController
   private
   def studio_params
     params.require(:studio).permit(:introduction, :postal_code, :prefecture_id, :city, :address, :access, :business_day, :business_hours_start, :business_hours_end, :phone_number).merge(manager_id: current_manager.id)
+  end
+
+  def move_to_index
+    @manager = current_manager
+    redirect_to action: :index if !@manager.studio.nil?
   end
 end
