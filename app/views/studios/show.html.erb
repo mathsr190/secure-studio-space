@@ -14,10 +14,8 @@
     <p>登録情報はこちらです</p>
     <p>スタジオ名</p><%= current_manager.studio_name %>
     <p>スタジオ名(かな)</p><%= current_manager.studio_name_kana%>
-    <% @studio.attributes.each do |attr_name, value|%>
-    <%= attr_name %>
-    <%= value%><br/>
-    <% end %>
+    <%= @studio.attributes %>
+    <%= @studio.prefecture.name%>
     <%= link_to "編集したい？", edit_studio_path(@studio.id) %>
   </div>
 <% end %>
