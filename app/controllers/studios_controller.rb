@@ -20,6 +20,8 @@ class StudiosController < ApplicationController
   end
 
   def show
+    @manager = current_manager
+    @studio = @manager.studio
   end
 
   private
