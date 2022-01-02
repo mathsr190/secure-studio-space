@@ -15,11 +15,12 @@
 | Column               | Type       | Options                        |
 | -------------------- | ---------- | ------------------------------ |
 | introduction         | text       | null: false                    |
-| prefecture_id        | integer    | null: false                    |
 | postal_code          | string     | null: false                    |
+| prefecture_id        | integer    | null: false                    |
+| city                 | string     | null: false                    |
 | address              | string     | null: false                    |
 | access               | string     | null: false                    |
-| business_day_id      | text       | null: false                    |
+| bday_ids             | text       | null: false                    |
 | business_hours_start | time       | null: false                    |
 | business_hours_end   | time       | null: false                    |
 | phone_number         | string     | null: false                    |
@@ -94,3 +95,9 @@
 
 ### Association
 - belongs_to :reservation
+
+
+# はじめに
+rails db:migrate:reset
+rails db:seed
+を実施してください。
