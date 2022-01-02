@@ -2,6 +2,7 @@ class Studio < ApplicationRecord
   belongs_to :manager
   has_many :studio_bdays, dependent: :destroy
   has_many :bdays, through: :studio_bdays
+  has_many :spaces, dependent: :destroy
   has_one_attached :image
   with_options presence: true do
     validates :introduction
