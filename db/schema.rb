@@ -57,10 +57,10 @@ ActiveRecord::Schema.define(version: 2022_01_02_040642) do
     t.text "info", null: false
     t.string "space_name", null: false
     t.string "space_name_kana", null: false
-    t.float "length", null: false
-    t.float "width", null: false
-    t.float "size", null: false
-    t.float "height", null: false
+    t.decimal "length", precision: 4, scale: 2, null: false
+    t.decimal "width", precision: 4, scale: 2, null: false
+    t.decimal "size", precision: 4, scale: 2, null: false
+    t.decimal "height", precision: 4, scale: 2, null: false
     t.integer "fee_morning", null: false
     t.integer "fee_day", null: false
     t.integer "fee_night", null: false
