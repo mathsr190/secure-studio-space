@@ -1,5 +1,11 @@
 class SpacesController < ApplicationController
   def index
+    @studio = Studio.find(params[:studio_id])
+  end
+
+  def show
+    @space = Space.find(params[:id])
+    @studio = @space.studio
   end
 
   def new
@@ -10,20 +16,38 @@ class SpacesController < ApplicationController
 
   def create
     @studio = Studio.find(params[:studio_id])
-    #@space = @studio.spaces.new(space_params)
-    #if @space.save
-    #  redirect_to root_path
-    #else
-    #  @studio = Studio.find(params[:studio_id])
-    #  @space = @studio.spaces.new(space_params)
-    #  render :new
-    #end
     @space_form = SpaceForm.new(space_form_params)
     if @space_form.valid?
       @space_form.save
       redirect_to root_path
     else
-      render :new
+      render :new 
+    end
+  end
+
+  def edit
+    @space = Space.find(params[:id])
+    @studio = @space.studio
+    space_attributes = @space.attributes
+    #@space_form = SpaceForm.new(space: @space)
+    @space_form = SpaceForm.new(space_attributes)
+  end
+
+  def update
+    @space = Space.find(params[:id])
+    @studio = @space.studio
+    space_attributes = @space.attributes
+    #@space_form = SpaceForm.new(space_form_params, space: @space)
+    @space_form = SpaceForm.new(space_attributes)
+    @space_form.image ||= @space.image
+    #@space_form = SpaceForm.new(space_attributes)
+    if @space_form.valid? #@space_form.save
+      #@space_form.save
+      binding.pry
+      @space_form.update(space_form_params, @space)
+      redirect_to root_path
+    else
+      render :edit
     end
   end
 

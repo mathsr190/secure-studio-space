@@ -22,10 +22,9 @@
     <%= @studio.prefecture.name%><br/>
     <%= image_tag @studio.image, class: 'studio-image' if @studio.image.attached? %>
     <%= link_to "編集したい？", edit_studio_path(@studio.id) %>
-    <p><%= link_to "スペース新規登録", new_studio_space_path(@studio.id), class: :nav__btn %></p>
+    <p><%= link_to "スペース見てみよう", studio_spaces_path(@studio.id), class: :nav__btn %></p>
   </div>
 <% end %>
 
 
 
-<%= render partial: 'spaces/space', collection: @manager.studio.spaces%>

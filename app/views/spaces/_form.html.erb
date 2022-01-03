@@ -1,6 +1,6 @@
 <%#= form_with model:[@studio, @space], local: true do |f| %>
 
-<%= form_with model: @space_form, url: url, id: 'new-space', local: true do |f| %>
+<%= form_with model: @space_form, url: url, method: method, id: 'new-space', local: true do |f| %>
 <%= render 'shared/error_messages', model: @space_form %>
 <div>紹介文</div>
 <%= f.text_area :info, id:"info", placeholder:"スペース紹介文(必須 140文字まで)", maxlength:"140"%>

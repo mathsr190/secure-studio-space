@@ -1,6 +1,9 @@
 class SpaceForm
   include ActiveModel::Model
-  attr_accessor :studio_id, :info, :space_name, :space_name_kana, :length, :width, :size, :height, :fee_morning, :fee_day, :fee_night, :image, :studio_id
+  attr_accessor(
+    :info, :space_name, :space_name_kana, :length, :width, :size, :height, :fee_morning, :fee_day, :fee_night, :image, :studio_id,
+    :id, :created_at, :datetime, :updated_at, :datetime
+    )
   with_options presence: true do
     validates :image
     validates :info
@@ -23,4 +26,34 @@ class SpaceForm
   def save
     Space.create(info: info, space_name: space_name, space_name_kana: space_name_kana, length: length, width: width, size: size, height: height, fee_morning: fee_morning, fee_day: fee_day, fee_night: fee_night, image: image, studio_id: studio_id)
   end
+
+  def update(params, space)
+    space.update(params)
+  end
+
+  #def initialize(attributes = nil, space: Space.new)
+  #  @space = space
+  #  attributes ||= default_attributes
+  #  super(attributes)
+  #end
+
+  private
+  #attr_reader :space
+
+  #def default_attributes
+   # {
+    #  info: space.info,
+    #  space_name: space.space_name,
+    #  space_name_kana: space.space_name_kana,
+    #  length: space.length,
+    #  width: space.width,
+    #  size: space.size,
+    #  height: space.height,
+    #  fee_morning: space.fee_morning,
+    #  fee_day: space.fee_day,
+    #  fee_night: space.fee_night,
+    #  image: space.image,
+    #  studio_id: space.studio_id
+    #}
+  #end
 end
