@@ -4,6 +4,10 @@ class StudiosController < ApplicationController
   def index
   end
 
+  def show
+    @studio = current_manager.studio
+  end
+
   def new
     @studio = Studio.new
   end
@@ -21,14 +25,10 @@ class StudiosController < ApplicationController
     @studio = Studio.find(params[:id])
   end
 
-  def show
-    @studio = current_manager.studio
-  end
-
   def update
     @studio = current_manager.studio
     if @studio.update(studio_params)
-      redirect_to studio_path(current_manager.id)
+      redirect_to studio_path(params[:id])
     else
       render :edit
     end

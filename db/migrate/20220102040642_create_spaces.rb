@@ -4,10 +4,10 @@ class CreateSpaces < ActiveRecord::Migration[6.0]
       t.text       :info,            null: false
       t.string     :space_name,      null: false
       t.string     :space_name_kana, null: false
-      t.decimal    :length,          null: false, precision: 4, scale: 2
-      t.decimal    :width,           null: false, precision: 4, scale: 2
-      t.decimal    :size,            null: false, precision: 4, scale: 2
-      t.decimal    :height,          null: false, precision: 4, scale: 2
+      t.float      :length,          null: false
+      t.float      :width,           null: false
+      t.float      :size,            null: false
+      t.float      :height,          null: false
       t.integer    :fee_morning,     null: false
       t.integer    :fee_day,         null: false
       t.integer    :fee_night,       null: false

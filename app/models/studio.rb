@@ -4,6 +4,7 @@ class Studio < ApplicationRecord
   has_many :bdays, through: :studio_bdays
   has_many :spaces, dependent: :destroy
   has_one_attached :image
+  attr_accessor :bday_ids
   with_options presence: true do
     validates :introduction
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }

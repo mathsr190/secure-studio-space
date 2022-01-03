@@ -37,10 +37,10 @@
 | info                 | text       | null: false                    |
 | space_name           | string     | null: false                    |
 | space_name_kana      | string     | null: false                    |
-| length               | decimal    | null: false                    |
-| width                | decimal    | null: false                    |
-| size                 | decimal    | null: false                    |
-| height               | decimal    | null: false                    |
+| length               | float      | null: false                    |
+| width                | float      | null: false                    |
+| size                 | float      | null: false                    |
+| height               | float      | null: false                    |
 | fee_morning          | integer    | null: false                    |
 | fee_day              | integer    | null: false                    |
 | fee_night            | integer    | null: false                    |
