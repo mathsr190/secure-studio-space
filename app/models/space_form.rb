@@ -1,7 +1,6 @@
 class SpaceForm
   include ActiveModel::Model
   attr_accessor :studio_id, :info, :space_name, :space_name_kana, :length, :width, :size, :height, :fee_morning, :fee_day, :fee_night, :image, :studio_id
-
   with_options presence: true do
     validates :image
     validates :info
