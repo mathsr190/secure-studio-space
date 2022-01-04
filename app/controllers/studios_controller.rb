@@ -5,8 +5,7 @@ class StudiosController < ApplicationController
   end
 
   def show
-    @manager = current_manager
-    @studio = @manager.studio
+    @studio = Studio.find(params[:id])
     @studiobday = StudioBday.where(studio_id:@studio.id).order(bday_id: :asc)
   end
 

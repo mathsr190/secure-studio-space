@@ -3,7 +3,7 @@
     <p>ヘッダー</p>
     <ul>
       <% if manager_signed_in? %>
-        <li><%= link_to "#{current_manager.studio_name} 様ログイン中", studio_path(current_manager.id), class: "studio-name" %></li>
+        <li><%= link_to "#{current_manager.studio_name} 様ログイン中マイページはこちらから", manager_path(current_manager.id), class: "studio-name" %></li>
         <li><%= link_to 'ログアウト', destroy_manager_session_path, method: :delete, class: "logout" %> </li> 
       <% else %>
         <li><%= link_to 'スタジオ管理者ログイン', new_manager_session_path, class: "login" %></li>
