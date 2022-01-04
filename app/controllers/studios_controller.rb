@@ -4,14 +4,21 @@ class StudiosController < ApplicationController
   def index
   end
 
+  def show
+    @manager = current_manager
+    @studio = @manager.studio
+    @studiobday = StudioBday.where(studio_id:@studio.id).order(bday_id: :asc)
+  end
+
   def new
     @studio = Studio.new
   end
 
   def create
+    @manager = current_manager
     @studio = Studio.new(studio_params)
     if @studio.save
-      redirect_to studio_path(current_manager.id)
+      redirect_to studio_path(@manager.id)
     else
       render new_studio_path
     end
@@ -21,14 +28,11 @@ class StudiosController < ApplicationController
     @studio = Studio.find(params[:id])
   end
 
-  def show
-    @studio = current_manager.studio
-  end
-
   def update
-    @studio = current_manager.studio
+    @manager = current_manager
+    @studio = @manager.studio
     if @studio.update(studio_params)
-      redirect_to studio_path(current_manager.id)
+      redirect_to studio_path(params[:id])
     else
       render :edit
     end

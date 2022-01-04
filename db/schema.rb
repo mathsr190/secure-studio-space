@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_142821) do
+ActiveRecord::Schema.define(version: 2022_01_02_040642) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -51,6 +51,23 @@ ActiveRecord::Schema.define(version: 2021_12_31_142821) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_managers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
+  end
+
+  create_table "spaces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "info", null: false
+    t.string "space_name", null: false
+    t.string "space_name_kana", null: false
+    t.float "length", null: false
+    t.float "width", null: false
+    t.float "size", null: false
+    t.float "height", null: false
+    t.integer "fee_morning", null: false
+    t.integer "fee_day", null: false
+    t.integer "fee_night", null: false
+    t.bigint "studio_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["studio_id"], name: "index_spaces_on_studio_id"
   end
 
   create_table "studio_bdays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -104,6 +121,7 @@ ActiveRecord::Schema.define(version: 2021_12_31_142821) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "spaces", "studios"
   add_foreign_key "studio_bdays", "bdays"
   add_foreign_key "studio_bdays", "studios"
   add_foreign_key "studios", "managers"

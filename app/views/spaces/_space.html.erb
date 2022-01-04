@@ -1,0 +1,5 @@
+
+<%= space.attributes%><br/>
+<%= space.id%><br/>
+<%= image_tag space.image, class: 'space-image' if space.image.attached? %>
+<%= link_to '詳細はこちらから', studio_space_path(space.id.to_i, studio_id: @studio.id) %>

@@ -1,0 +1,31 @@
+<%#= form_with model:[@studio, @space], local: true do |f| %>
+
+<%= form_with model: @space_form, url: url, method: method, id: 'new-space', local: true do |f| %>
+<%= render 'shared/error_messages', model: @space_form %>
+<div>紹介文</div>
+<%= f.text_area :info, id:"info", placeholder:"スペース紹介文(必須 140文字まで)", maxlength:"140"%>
+
+<div>部屋名</div>
+<%= f.text_field :space_name, id:"space-name", placeholder:"練習スタジオ"%>
+<div>部屋名(かな)</div>
+<%= f.text_field :space_name_kana, id:"space-name-kana", placeholder:"れんしゅうすたじお"%>
+<div>幅(m)(小数第2位まで記入)</div>
+<%= f.number_field :length, step: '0.01', min: 0, max: 2500, placeholder:'10.7', id:"length"%>
+<div>奥行き(m)(小数第2位まで記入)</div>
+<%= f.number_field :width, step: '0.01', min: 0, max: 2500, placeholder:'8.2', id:"width"%>
+<div>面積(&#13217)(小数第2位まで記入)</div>
+<%= f.number_field :size, step: '0.01', min: 0, max: 2500, placeholder:'87.74', id:"size"%>
+<div>高さ(height)(小数第2位まで記入)</div>
+<%= f.number_field :height, step: '0.01', min: 0, max: 2500, placeholder:'3.5', id:"height"%>
+<div>使用料金(朝)(1時間あたり)</div>
+<%= f.number_field :fee_morning, step: '1', min: 0, id:"fee-morning", placeholder:"例）1500"%>
+<div>使用料金(昼)(1時間あたり)</div>
+<%= f.number_field :fee_day, step: '1', min: 0, id:"fee-day", placeholder:"例）2000"%>
+<div>使用料金(夜)(1時間あたり)</div>
+<%= f.number_field :fee_night, step: '1', min: 0, id:"fee-night", placeholder:"例) 3000"%>
+クリックして画像(png.jpg)をアップロード
+</p>
+<%= f.file_field :image, id:"item-image" %>
+<br/>
+<%= f.submit "登録", id:"button"%>
+<% end %>

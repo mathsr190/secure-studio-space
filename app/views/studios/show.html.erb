@@ -5,18 +5,26 @@
 
 
 
-<% if current_manager.studio == nil%>
+<% if @manager.studio == nil%>
   <span>nilだって</span>
   <p><%= link_to "スタジオ新規登録", new_studio_path, class: :nav__btn %></p>
 <% else %>
   <span>nilじゃないって</span>
   <div>
     <p>登録情報はこちらです</p>
-    <p>スタジオ名</p><%= current_manager.studio_name %>
-    <p>スタジオ名(かな)</p><%= current_manager.studio_name_kana%>
-    <%= @studio.attributes %>
+    <p>スタジオ名</p><%= @manager.studio_name %>
+    <p>スタジオ名(かな)</p><%= @manager.studio_name_kana%>
+    <%= @studio.attributes %>><br/>
+
+    <% @studiobday.each do |bday| %>
+      <%= Bday.find(bday.bday_id).bday %>
+    <% end %>
     <%= @studio.prefecture.name%><br/>
     <%= image_tag @studio.image, class: 'studio-image' if @studio.image.attached? %>
     <%= link_to "編集したい？", edit_studio_path(@studio.id) %>
+    <p><%= link_to "スペース見てみよう", studio_spaces_path(@studio.id), class: :nav__btn %></p>
   </div>
 <% end %>
+
+
+
