@@ -43,7 +43,6 @@ class SpacesController < ApplicationController
     #@space_form = SpaceForm.new(space_attributes)
     if @space_form.valid? #@space_form.save
       #@space_form.save
-      binding.pry
       @space_form.update(space_form_params, @space)
       redirect_to root_path
     else
