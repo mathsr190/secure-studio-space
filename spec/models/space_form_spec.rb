@@ -7,7 +7,7 @@ RSpec.describe SpaceForm, type: :model do
       @space_form = FactoryBot.build(:space_form, studio_id: studio.id )
       @space_form.image = fixture_file_upload('public/images/space_test_image.png')
       @space_form.save
-      sleep(0.1)
+      sleep(0.15)
     end
 
     context '部屋登録できる場合' do

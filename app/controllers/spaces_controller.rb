@@ -19,7 +19,7 @@ class SpacesController < ApplicationController
     @space_form = SpaceForm.new(space_form_params)
     if @space_form.valid?
       @space_form.save
-      redirect_to root_path
+      redirect_to studio_spaces_path(@studio.id)
     else
       render :new 
     end
@@ -44,7 +44,7 @@ class SpacesController < ApplicationController
     if @space_form.valid? #@space_form.save
       #@space_form.save
       @space_form.update(space_form_params, @space)
-      redirect_to root_path
+      redirect_to studio_space_path(@space.id, studio_id: @studio.id)
     else
       render :edit
     end
