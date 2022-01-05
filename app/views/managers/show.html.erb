@@ -1,0 +1,17 @@
+<h1>Managers#show</h1>
+<p>Find me in app/views/managers/show.html.erb</p>
+<% if @manager.studio == nil%>
+  <span>スタジオの登録が完了していません。</span>
+  <p><%= link_to "スタジオ新規登録はこちらをクリックしてください。", new_studio_path, class: :nav__btn %></p>
+<% else %>
+  <span>nilじゃないって</span>
+  <div>
+    <p>登録されているスタジオ<%= @manager.studio_name%>はこちらです</p>
+    <p>スタジオ名</p><%= @manager.studio_name %>
+    <p>スタジオ名(かな)</p><%= @manager.studio_name_kana%>
+    <%= @studio.attributes %>><br/>
+    <p><%= link_to "スタジオ情報を編集するにはスタジオ詳細画面からお願いします。。", studio_path(@studio.id), class: :nav__btn %></p>
+
+    <%= image_tag @studio.image, class: 'studio-image' if @studio.image.attached? %>
+  </div>
+<% end %>

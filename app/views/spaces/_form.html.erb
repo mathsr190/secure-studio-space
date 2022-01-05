@@ -18,11 +18,11 @@
 <div>高さ(height)(小数第2位まで記入)</div>
 <%= f.number_field :height, step: '0.01', min: 0, max: 2500, placeholder:'3.5', id:"height"%>
 <div>使用料金(朝)(1時間あたり)</div>
-<%= f.number_field :fee_morning, step: '1', min: 0, id:"fee-morning", placeholder:"例）1500"%>
+<%= f.number_field :fee_morning, step: '1', min: 0, max: 200000000, id:"fee-morning", placeholder:"例）1500"%>
 <div>使用料金(昼)(1時間あたり)</div>
-<%= f.number_field :fee_day, step: '1', min: 0, id:"fee-day", placeholder:"例）2000"%>
+<%= f.number_field :fee_day, step: '1', min: 0, max: 200000000, id:"fee-day", placeholder:"例）2000"%>
 <div>使用料金(夜)(1時間あたり)</div>
-<%= f.number_field :fee_night, step: '1', min: 0, id:"fee-night", placeholder:"例) 3000"%>
+<%= f.number_field :fee_night, step: '1', min: 0, max: 200000000, id:"fee-night", placeholder:"例) 3000"%>
 クリックして画像(png.jpg)をアップロード
 </p>
 <%= f.file_field :image, id:"item-image" %>

@@ -1,3 +1,4 @@
     <p><%= link_to "スペース新規登録", new_studio_space_path(@studio.id), class: :nav__btn %></p>
+    <p><%= link_to "スタジオに戻る", studio_path(@studio.id), class: :nav__btn %></p>
 
     <%= render partial: 'spaces/space', collection: @studio.spaces%>

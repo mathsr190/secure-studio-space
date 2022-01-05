@@ -5,8 +5,7 @@ class StudiosController < ApplicationController
   end
 
   def show
-    @manager = current_manager
-    @studio = @manager.studio
+    @studio = Studio.find(params[:id])
     @studiobday = StudioBday.where(studio_id:@studio.id).order(bday_id: :asc)
   end
 
@@ -15,10 +14,9 @@ class StudiosController < ApplicationController
   end
 
   def create
-    @manager = current_manager
     @studio = Studio.new(studio_params)
     if @studio.save
-      redirect_to studio_path(@manager.id)
+      redirect_to studio_path(@studio.id)
     else
       render new_studio_path
     end
