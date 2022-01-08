@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'studios/index'
   root to: "studios#index"
   resources :managers, only: :show
+  resources :users, only: :show
   resources :studios, only: [:index, :show, :new, :create, :edit, :update] do
     resources :spaces, only: [:index, :show, :new, :create, :edit, :update]
   end

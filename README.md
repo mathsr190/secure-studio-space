@@ -88,8 +88,8 @@
 ## reservation_detailsテーブル
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| time_start    | datetime   | null: false                    |
-| time_end      | datetime   | null: false                    |
+| time_start    | time       | null: false                    |
+| time_end      | time       | null: false                    |
 | price         | integer    | null: false                    |
 | reservation   | references | null: false, foreign_key: true |
 
