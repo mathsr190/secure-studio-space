@@ -10,7 +10,7 @@ class SpacesController < ApplicationController
 
   def new
     @studio = Studio.find(params[:studio_id])
-    #@space = @studio.spaces.new
+    # @space = @studio.spaces.new
     @space_form = SpaceForm.new
   end
 
@@ -21,7 +21,7 @@ class SpacesController < ApplicationController
       @space_form.save
       redirect_to studio_spaces_path(@studio.id)
     else
-      render :new 
+      render :new
     end
   end
 
@@ -29,7 +29,7 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
     @studio = @space.studio
     space_attributes = @space.attributes
-    #@space_form = SpaceForm.new(space: @space)
+    # @space_form = SpaceForm.new(space: @space)
     @space_form = SpaceForm.new(space_attributes)
   end
 
@@ -37,12 +37,12 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
     @studio = @space.studio
     space_attributes = @space.attributes
-    #@space_form = SpaceForm.new(space_form_params, space: @space)
+    # @space_form = SpaceForm.new(space_form_params, space: @space)
     @space_form = SpaceForm.new(space_attributes)
     @space_form.image ||= @space.image
-    #@space_form = SpaceForm.new(space_attributes)
-    if @space_form.valid? #@space_form.save
-      #@space_form.save
+    # @space_form = SpaceForm.new(space_attributes)
+    if @space_form.valid? # @space_form.save
+      # @space_form.save
       @space_form.update(space_form_params, @space)
       redirect_to studio_space_path(@space.id, studio_id: @studio.id)
     else
@@ -51,9 +51,10 @@ class SpacesController < ApplicationController
   end
 
   private
-  def space_form_params
-    #params.require(:space).permit(:info, :space_name, :space_name_kana, :length, :width, :size, :height, :fee_morning, :fee_day, :fee_night, :image).merge(studio_id: params[:studio_id])
-    params.require(:space_form).permit(:info, :space_name, :space_name_kana, :length, :width, :size, :height, :fee_morning, :fee_day, :fee_night, :image).merge(studio_id: params[:studio_id])
-  end
 
+  def space_form_params
+    # params.require(:space).permit(:info, :space_name, :space_name_kana, :length, :width, :size, :height, :fee_morning, :fee_day, :fee_night, :image).merge(studio_id: params[:studio_id])
+    params.require(:space_form).permit(:info, :space_name, :space_name_kana, :length, :width, :size, :height, :fee_morning,
+                                       :fee_day, :fee_night, :image).merge(studio_id: params[:studio_id])
+  end
 end

@@ -4,7 +4,7 @@ RSpec.describe SpaceForm, type: :model do
   describe '部屋登録' do
     before do
       studio = FactoryBot.create(:studio)
-      @space_form = FactoryBot.build(:space_form, studio_id: studio.id )
+      @space_form = FactoryBot.build(:space_form, studio_id: studio.id)
       @space_form.image = fixture_file_upload('public/images/space_test_image.png')
       @space_form.save
       sleep(0.15)
@@ -40,12 +40,12 @@ RSpec.describe SpaceForm, type: :model do
       it '部屋名(かな)が半角英数字では保存できない' do
         @space_form.space_name_kana = Faker::Name.last_name
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Space name kana is invalid")
+        expect(@space_form.errors.full_messages).to include('Space name kana is invalid')
       end
       it '部屋名(かな)がカタカナでは保存できない' do
         @space_form.space_name_kana = Gimei.name.last.katakana
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Space name kana is invalid")
+        expect(@space_form.errors.full_messages).to include('Space name kana is invalid')
       end
       it '幅が空では保存できない' do
         @space_form.length = ''
@@ -55,17 +55,17 @@ RSpec.describe SpaceForm, type: :model do
       it '幅が0未満では保存できない' do
         @space_form.length = Faker::Number.negative
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Length is invalid")
+        expect(@space_form.errors.full_messages).to include('Length is invalid')
       end
       it '幅が0では保存できない' do
         @space_form.length = 0
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Length is invalid")
+        expect(@space_form.errors.full_messages).to include('Length is invalid')
       end
       it '幅が2500以上では保存できない' do
-        @space_form.length = Faker::Number.between(from:2500)
+        @space_form.length = Faker::Number.between(from: 2500)
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Length is invalid")
+        expect(@space_form.errors.full_messages).to include('Length is invalid')
       end
       it '奥行きが空では保存できない' do
         @space_form.width = ''
@@ -75,17 +75,17 @@ RSpec.describe SpaceForm, type: :model do
       it '奥行きが0未満では保存できない' do
         @space_form.width = Faker::Number.negative
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Width is invalid")
+        expect(@space_form.errors.full_messages).to include('Width is invalid')
       end
       it '奥行きが0では保存できない' do
         @space_form.width = 0
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Width is invalid")
+        expect(@space_form.errors.full_messages).to include('Width is invalid')
       end
       it '奥行きが2500以上では保存できない' do
-        @space_form.width = Faker::Number.between(from:2500)
+        @space_form.width = Faker::Number.between(from: 2500)
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Width is invalid")
+        expect(@space_form.errors.full_messages).to include('Width is invalid')
       end
       it '面積が空では保存できない' do
         @space_form.size = ''
@@ -95,17 +95,17 @@ RSpec.describe SpaceForm, type: :model do
       it '面積が0未満では保存できない' do
         @space_form.size = Faker::Number.negative
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Size is invalid")
+        expect(@space_form.errors.full_messages).to include('Size is invalid')
       end
       it '面積が0では保存できない' do
         @space_form.size = 0
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Size is invalid")
+        expect(@space_form.errors.full_messages).to include('Size is invalid')
       end
       it '面積が2500以上では保存できない' do
-        @space_form.size = Faker::Number.between(from:2500)
+        @space_form.size = Faker::Number.between(from: 2500)
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Size is invalid")
+        expect(@space_form.errors.full_messages).to include('Size is invalid')
       end
       it '高さが空では保存できない' do
         @space_form.height = ''
@@ -115,17 +115,17 @@ RSpec.describe SpaceForm, type: :model do
       it '高さが0未満では保存できない' do
         @space_form.height = Faker::Number.negative
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Height is invalid")
+        expect(@space_form.errors.full_messages).to include('Height is invalid')
       end
       it '高さが0では保存できない' do
         @space_form.height = 0
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Height is invalid")
+        expect(@space_form.errors.full_messages).to include('Height is invalid')
       end
       it '高さが2500以上では保存できない' do
-        @space_form.height = Faker::Number.between(from:2500)
+        @space_form.height = Faker::Number.between(from: 2500)
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Height is invalid")
+        expect(@space_form.errors.full_messages).to include('Height is invalid')
       end
       it '使用料金(朝)が空では保存できない' do
         @space_form.fee_morning = ''
@@ -135,12 +135,12 @@ RSpec.describe SpaceForm, type: :model do
       it '使用料金(朝)が0未満では保存できない' do
         @space_form.fee_morning = Faker::Number.negative
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Fee morning is invalid")
+        expect(@space_form.errors.full_messages).to include('Fee morning is invalid')
       end
       it '使用料金(朝)が小数では保存できない' do
         @space_form.fee_morning = Faker::Number.decimal(r_digits: 1)
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Fee morning is invalid")
+        expect(@space_form.errors.full_messages).to include('Fee morning is invalid')
       end
       it '使用料金(昼)が空では保存できない' do
         @space_form.fee_day = ''
@@ -150,12 +150,12 @@ RSpec.describe SpaceForm, type: :model do
       it '使用料金(昼)が0未満では保存できない' do
         @space_form.fee_day = Faker::Number.negative
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Fee day is invalid")
+        expect(@space_form.errors.full_messages).to include('Fee day is invalid')
       end
       it '使用料金(昼)が小数では保存できない' do
         @space_form.fee_day = Faker::Number.decimal(r_digits: 1)
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Fee day is invalid")
+        expect(@space_form.errors.full_messages).to include('Fee day is invalid')
       end
       it '使用料金(夜)が空では保存できない' do
         @space_form.fee_night = ''
@@ -165,12 +165,12 @@ RSpec.describe SpaceForm, type: :model do
       it '使用料金(夜)が0未満では保存できない' do
         @space_form.fee_night = Faker::Number.negative
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Fee night is invalid")
+        expect(@space_form.errors.full_messages).to include('Fee night is invalid')
       end
       it '使用料金(夜)が小数では保存できない' do
         @space_form.fee_night = Faker::Number.decimal(r_digits: 1)
         @space_form.valid?
-        expect(@space_form.errors.full_messages).to include("Fee night is invalid")
+        expect(@space_form.errors.full_messages).to include('Fee night is invalid')
       end
     end
   end

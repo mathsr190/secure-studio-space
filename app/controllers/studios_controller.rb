@@ -6,7 +6,7 @@ class StudiosController < ApplicationController
 
   def show
     @studio = Studio.find(params[:id])
-    @studiobday = StudioBday.where(studio_id:@studio.id).order(bday_id: :asc)
+    @studiobday = StudioBday.where(studio_id: @studio.id).order(bday_id: :asc)
   end
 
   def new
@@ -37,12 +37,14 @@ class StudiosController < ApplicationController
   end
 
   private
+
   def studio_params
-    params.require(:studio).permit(:introduction, :postal_code, :prefecture_id, :city, :address, :access, :business_hours_start, :business_hours_end, :phone_number, :image, {:bday_ids => []}).merge(manager_id: current_manager.id)
+    params.require(:studio).permit(:introduction, :postal_code, :prefecture_id, :city, :address, :access, :business_hours_start,
+                                   :business_hours_end, :phone_number, :image, { bday_ids: [] }).merge(manager_id: current_manager.id)
   end
 
   def move_to_index
     @manager = current_manager
-    redirect_to action: :index if !@manager.studio.nil?
+    redirect_to action: :index unless @manager.studio.nil?
   end
 end

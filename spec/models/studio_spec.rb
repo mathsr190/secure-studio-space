@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Studio, type: :model do
   before do
-    #array = ["1","2","3","4","5","6","7"].sample(rand(1..7))
+    # array = ["1","2","3","4","5","6","7"].sample(rand(1..7))
     @studio = FactoryBot.build(:studio)
-    #, bday_ids: array 
+    # , bday_ids: array
   end
 
   describe 'スタジオ登録' do
@@ -33,12 +33,12 @@ RSpec.describe Studio, type: :model do
       it '郵便番号にハイフン(-)がないと保存できない' do
         @studio.postal_code = Faker::Number.number(digits: 7)
         @studio.valid?
-        expect(@studio.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@studio.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it '郵便番号が全角数字だと保存できない' do
         @studio.postal_code = '１２３-４５６７'
         @studio.valid?
-        expect(@studio.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@studio.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it '都道府県が選択されていない(0)と保存できない' do
         @studio.prefecture_id = 0
@@ -78,22 +78,22 @@ RSpec.describe Studio, type: :model do
       it '電話番号にハイフンが入っていると保存できない' do
         @studio.phone_number = '090-1234-5678'
         @studio.valid?
-        expect(@studio.errors.full_messages).to include("Phone number is invalid")
+        expect(@studio.errors.full_messages).to include('Phone number is invalid')
       end
       it '電話番号が9桁以下では保存できない' do
         @studio.phone_number = '123456789'
         @studio.valid?
-        expect(@studio.errors.full_messages).to include("Phone number is invalid")
+        expect(@studio.errors.full_messages).to include('Phone number is invalid')
       end
       it '電話番号が12桁以上では保存できない' do
         @studio.phone_number = '123456789012'
         @studio.valid?
-        expect(@studio.errors.full_messages).to include("Phone number is invalid")
+        expect(@studio.errors.full_messages).to include('Phone number is invalid')
       end
       it 'manager_idが空だと保存できない' do
         @studio.manager = nil
         @studio.valid?
-        expect(@studio.errors.full_messages).to include("Manager must exist")
+        expect(@studio.errors.full_messages).to include('Manager must exist')
       end
     end
   end
