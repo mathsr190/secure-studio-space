@@ -5,7 +5,7 @@ RSpec.describe Manager, type: :model do
     @manager = FactoryBot.build(:manager)
   end
 
-  describe "ユーザー新規登録" do
+  describe "マネージャー新規登録" do
     context '新規登録できる場合' do
       it 'email,スタジオ名、スタジオ名(かな)、passwordが存在すれば登録できる' do
         expect(@manager).to be_valid
