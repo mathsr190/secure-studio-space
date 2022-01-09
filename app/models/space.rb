@@ -1,6 +1,7 @@
 class Space < ApplicationRecord
   belongs_to :studio
   has_one_attached :image
+  has_many :reservations
   # with_options presence: true do
   #  validates :image
   #  validates :info
