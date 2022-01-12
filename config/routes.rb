@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reservation/index'
   get 'managers/show'
   devise_for :managers, controllers: {
     sessions:      'managers/sessions',
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
   resources :managers, only: :show
   resources :users, only: :show
   resources :studios, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :spaces, only: [:index, :show, :new, :create, :edit, :update]
+    resources :spaces, only: [:index, :show, :new, :create, :edit, :update] do
+      resources :reservations, only: [:index, :create]
+    end
   end
 end

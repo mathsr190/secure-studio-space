@@ -1,0 +1,20 @@
+<h1>Reservation#index</h1>
+<p>Find me in app/views/reservation/index.html.erb</p>
+
+
+<%#= form_with model:[@studio, @space], local: true do |f| %>
+
+<%= form_with model: @reservation_form, url: studio_space_reservations_path, id: 'reservation-form', local: true do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
+
+<div>使用開始時刻</div>
+<%= f.datetime_field :time_start, id:"time-start", min: Time.current%>
+<div>使用終了時刻</div>
+<%= f.datetime_field :time_start, id:"time-start", min: Time.current%>
+<div>部屋名(かな)</div>
+<%= f.text_field :space_name_kana, id:"space-name-kana", placeholder:"れんしゅうすたじお"%>
+<div>幅(m)(小数第2位まで記入)</div>
+<%= f.number_field :length, step: '0.01', min: 0, max: 2500, placeholder:'10.7', id:"length"%>
+
+<%= f.submit "登録", id:"button"%>
+<% end %>
