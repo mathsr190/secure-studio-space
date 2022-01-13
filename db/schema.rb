@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2022_01_09_125200) do
   end
 
   create_table "reservation_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.time "time_start", null: false
-    t.time "time_end", null: false
+    t.datetime "time_start", null: false
+    t.datetime "time_end", null: false
     t.integer "price", null: false
     t.bigint "reservation_id", null: false
     t.datetime "created_at", precision: 6, null: false
