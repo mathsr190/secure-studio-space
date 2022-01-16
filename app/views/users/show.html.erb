@@ -4,5 +4,9 @@
 
 <div>予約一覧とか表示させたいねぇ。</div>
 
+<% @reservations.each do |reservation|%>
+  <%= reservation.reservation_detail.attributes %>
+  <%= l reservation.reservation_detail.time_start %>
+<% end %>
 
 <p><%= link_to "トップに戻る", root_path, class: :nav__btn %></p>
