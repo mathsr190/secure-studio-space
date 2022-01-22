@@ -7,12 +7,13 @@
 <%= form_with model: @reservation_form, url: studio_space_reservations_path, id: 'reservation-form', local: true do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
 
+
 <div>使用開始時刻</div>
-<%= f.datetime_field :time_start, id:"time-start", min: Time.current%>
+<%= f.datetime_field :time_start, id:"time-start", min: Time.current %>
 <div>使用終了時刻</div>
-<%= f.datetime_field :time_end, id:"time-start", min: Time.current%>
+<%= f.datetime_field :time_end, id:"time-start", min: Time.current %>
 <div>値段</div>
-<%= f.number_field :price, step: '1', min: 0, max: 200000000, id:"price", placeholder:"例）2400"%>
+<%= f.number_field :price, step: '1', min: 0, max: 9999999, id:"price", placeholder:"例）2400"%>
 
   <div class='form-wrap'>
     <%= f.label :number,  "カード番号" %>
