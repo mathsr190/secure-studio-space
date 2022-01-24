@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "Reservations", type: :request do
-
+RSpec.describe 'Reservations', type: :request do
 end

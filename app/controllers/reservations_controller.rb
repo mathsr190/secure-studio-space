@@ -15,8 +15,10 @@ class ReservationsController < ApplicationController
   end
 
   private
+
   def reservation_form_params
-    params.require(:reservation_form).permit(:time_start, :time_end, :price).merge(space_id: params[:space_id], user_id: current_user.id).merge(token: params[:token])
+    params.require(:reservation_form).permit(:time_start, :time_end, :price).merge(space_id: params[:space_id],
+                                                                                   user_id: current_user.id).merge(token: params[:token])
   end
 
   def pay_jp
