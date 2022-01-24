@@ -11,5 +11,6 @@ FactoryBot.define do
     fee_morning       { Faker::Number.between(from: 0).to_i }
     fee_day           { Faker::Number.between(from: 0).to_i }
     fee_night         { Faker::Number.between(from: 0).to_i }
+    #修正が入る場合はspaces.rbも変更する。reservation_formのテストで使用するため。
   end
 end
