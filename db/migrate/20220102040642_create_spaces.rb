@@ -12,7 +12,6 @@ class CreateSpaces < ActiveRecord::Migration[6.0]
       t.integer    :fee_day,         null: false
       t.integer    :fee_night,       null: false
       t.references :studio,          null: false, foreign_key: true
-
       t.timestamps
     end
   end

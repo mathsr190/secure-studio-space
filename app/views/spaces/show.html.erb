@@ -6,5 +6,8 @@
 <%= image_tag @space.image, class: 'space-image' if @space.image.attached? %>
 
 <%= link_to '編集', edit_studio_space_path(@space.id, studio_id: @studio.id) %>
+<%= link_to '予約したいね', studio_space_reservations_path(@space.id, studio_id: @studio.id) %>
 
-<%= link_to '部屋一覧に戻る', studio_spaces_path(@studio.id) %>
+
+
+<%= link_to '部屋一覧に戻る', studio_path(@studio.id) %>

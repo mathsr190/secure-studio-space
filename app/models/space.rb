@@ -1,7 +1,8 @@
 class Space < ApplicationRecord
   belongs_to :studio
   has_one_attached :image
-  #with_options presence: true do
+  has_many :reservations
+  # with_options presence: true do
   #  validates :image
   #  validates :info
   #  validates :space_name
@@ -17,5 +18,5 @@ class Space < ApplicationRecord
   #    validates :fee_day
   #    validates :fee_night
   #  end
-  #end
+  # end
 end
