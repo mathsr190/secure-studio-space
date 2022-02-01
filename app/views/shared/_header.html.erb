@@ -1,10 +1,14 @@
 <header class='top-page-header'>
   <div class='nav'>
-    <div>
-      <p>スタジオ管理者ヘッダー</p>
-      <ul>
+  <div class='nav-left'>
+    <%= link_to image_tag("sss_logo.png", class:"sss-icon"), root_path%>
+  </div>
+  <div class='nav-right'>
+    <div class='lists-div'>
+      <ul class='lists'>
         <% if manager_signed_in? %>
-          <li><%= link_to "#{current_manager.studio_name} 様ログイン中マイページはこちらから", manager_path(current_manager.id), class: "manager-name" %></li>
+          <li><%="ようこそ！#{current_manager.studio_name} 様"%></li>
+          <li><%= link_to "マイページ", manager_path(current_manager.id), class: "my-page" %></li>
           <li><%= link_to 'ログアウト', destroy_manager_session_path, method: :delete, class: "logout" %> </li> 
         <% else %>
           <li><%= link_to 'スタジオ管理者ログイン', new_manager_session_path, class: "login" %></li>
@@ -12,12 +16,11 @@
         <% end %>
       </ul>
     </div>
-    <div>
-    <br/>
-      <p>ユーザーヘッダー</p>
-      <ul>
+    <div class='lists-div'>
+      <ul class='lists'>
         <% if user_signed_in? %>
-          <li><%= link_to "#{current_user.last_name}#{current_user.first_name} 様ログイン中マイページはこちらから", user_path(current_user.id), class: "user-name" %></li>
+          <li><%="ようこそ！#{current_user.last_name}#{current_user.first_name} 様"%></li>
+          <li><%= link_to "マイページ", user_path(current_user.id), class: "my-page" %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> </li> 
         <% else %>
           <li><%= link_to 'ユーザーログイン', new_user_session_path, class: "login" %></li>
