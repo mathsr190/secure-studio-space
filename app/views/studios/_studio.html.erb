@@ -1,0 +1,58 @@
+<div class='studio-block'>
+  <div class='studio-block-header'>
+    <h3><%= link_to studio.manager.studio_name, studio_path(studio.id), class: "studio-name" %></h3>
+  </div>
+  <div class='studio-block-content'>
+    <div class='block-left'>
+      <%= image_tag studio.image, class: 'studio-mini-image' if studio.image.attached? %>
+    </div>
+    <div class='block-right'>
+      <div class='studio-introduction-and-button'>
+        <div class='studio-introduction'>
+          <%= studio.introduction %>
+        </div>
+        <div class='studio-link-button'>
+          <%= link_to "詳細はこちら", studio_path(studio.id), class: "studio-button"%>
+        </div>
+      </div>
+      <table class='studio-detail'>
+        <tr>
+          <td class='icon'><span class="material-icons">commute</span>
+          </td>
+          <td class='detail-subtitle'>アクセス
+          </td>
+          <td><%= studio.access %>
+          </td>
+        </tr>
+        <tr>
+          <td class='icon'><span class="material-icons">meeting_room</span>
+          </td>
+          <td class='detail-subtitle'>部屋数
+          </td>
+          <td class='detail-content'><%= studio.spaces.length %>
+          </td>
+        </tr>
+        <tr>
+          <td class='icon'><span class="material-icons">schedule</span>
+          </td>
+          <td class='detail-subtitle'>営業時間
+          </td>
+          <td class='detail-content'><%= "#{studio.business_hours_start.strftime("%H:%M")}〜#{studio.business_hours_end.strftime("%H:%M")}" %>
+          </td>
+        </tr>
+        <tr>
+          <td class='icon'><span class="material-icons">event_available</span>
+          </td>
+          <td class='detail-subtitle'>営業曜日
+          </td>
+          <td class='detail-content'>
+            <% StudioBday.where(studio_id: studio.id).order(bday_id: :asc).each do |bday| %>
+              <%= Bday.find(bday.bday_id).bday %>
+            <% end %>         
+          </td>
+        </tr>
+      </table>
+      
+    </div>
+  </div>
+</div>

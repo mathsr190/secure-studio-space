@@ -2,7 +2,7 @@ class StudiosController < ApplicationController
   before_action :authenticate_manager!, only: [:new, :edit]
   before_action :move_to_index, only: [:new]
   def index
-    @studios = Studio.all.includes(:manager)
+    @studios = Studio.all.includes(:manager, :spaces)
   end
 
   def show
