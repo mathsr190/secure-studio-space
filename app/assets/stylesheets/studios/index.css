@@ -21,7 +21,7 @@
   font-size: 22px;
 }
 
-h2 {
+.studio-list-title {
   display: block;
   border-left: 6px double #fffffe;
   padding: 0 15px;

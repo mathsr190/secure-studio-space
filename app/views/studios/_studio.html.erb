@@ -4,7 +4,9 @@
   </div>
   <div class='studio-block-content'>
     <div class='block-left'>
+    <%= link_to(studio_path(studio.id)) do %>
       <%= image_tag studio.image, class: 'studio-mini-image' if studio.image.attached? %>
+    <% end %>
     </div>
     <div class='block-right'>
       <div class='studio-introduction-and-button'>
