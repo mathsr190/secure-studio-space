@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .studio-block {
   width: 900px;
   margin: 20px auto;
@@ -75,7 +79,8 @@
 
 .studio-detail {
   margin: 10px;
-  border: 1px solid black;
+  width: 630px;
+  table-layout: fixed;
 }
 
 th, td {

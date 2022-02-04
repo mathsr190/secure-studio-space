@@ -1,3 +1,18 @@
-<header class='second-header'>
-  <%= link_to "セカンドヘッダーだよ。これを押すとトップページに戻るよ。", "/" %>
+<header class='s-header'>
+  <div class='s-nav'>
+    <div class='s-nav-left'>
+      <%= link_to image_tag("sss_logo_mini.png", class:"sss-icon-mini"), root_path %>
+    </div>
+    <div class='s-nav-right'>
+      <ul class='s-lists'>
+        <% if user_signed_in? %>
+          <li><%= link_to "マイページ", user_path(current_user.id), class: "my-page" %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> </li> 
+        <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+          <li><%= link_to 'ユーザー新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </header>
