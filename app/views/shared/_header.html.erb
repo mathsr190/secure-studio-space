@@ -8,7 +8,7 @@
       <ul class='lists'>
         <% if manager_signed_in? %>
           <li><%="ようこそ！#{current_manager.studio_name} 様"%></li>
-          <li><%= link_to "マイページ", manager_path(current_manager.id), class: "my-page" %></li>
+          <li><%= link_to "マイページ", manager_path(current_manager.id), class: "manager-my-page" %></li>
           <li><%= link_to 'ログアウト', destroy_manager_session_path, method: :delete, class: "logout" %> </li> 
         <% else %>
           <li><%= link_to 'スタジオ管理者ログイン', new_manager_session_path, class: "login" %></li>
@@ -20,7 +20,7 @@
       <ul class='lists'>
         <% if user_signed_in? %>
           <li><%="ようこそ！#{current_user.last_name}#{current_user.first_name} 様"%></li>
-          <li><%= link_to "マイページ", user_path(current_user.id), class: "my-page" %></li>
+          <li><%= link_to "マイページ", user_path(current_user.id), class: "user-my-page" %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> </li> 
         <% else %>
           <li><%= link_to 'ユーザーログイン', new_user_session_path, class: "login" %></li>

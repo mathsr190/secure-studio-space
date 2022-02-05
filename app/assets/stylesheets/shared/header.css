@@ -32,7 +32,6 @@
 }
 
 
-
 .nav-right {
   width: 750px;
 }
@@ -60,16 +59,28 @@
 }
 
 
-.my-page {
+.manager-my-page {
   border: solid 3px gray;
   padding: 0 20px;
   border-radius: 40px;
   text-decoration: none;
   margin-right: 30px;
-  color: #333333;
+  font-weight: bold;
+  background-color: #fa5246;
+  margin-left: 30px;
+  color: #00332c;
+}
+
+.user-my-page {
+  border: solid 3px gray;
+  padding: 0 20px;
+  border-radius: 40px;
+  text-decoration: none;
+  margin-right: 30px;
   font-weight: bold;
   background-color: #faae2b;
   margin-left: 30px;
+  color: #00473e;
 }
 
 .logout {
@@ -77,10 +88,10 @@
   padding: 0 20px;
   border-radius: 40px;
   text-decoration: none;
-  color: #333333;
   flex-wrap: nowrap;
   display: block;
   text-align: center;
+  color: #00473e;
 }
 
 .login {
@@ -88,7 +99,7 @@
   padding: 0 20px;
   border-radius: 40px;
   text-decoration: none;
-  color: #333333;
+  color: #00473e;
 }
 
 .sign-up {
@@ -98,4 +109,5 @@
   text-decoration: none;
   color: #333333;
   margin-left: 30px;
+  color: #00473e;
 }

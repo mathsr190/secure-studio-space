@@ -16,36 +16,25 @@
           <%= link_to "詳細はこちら", studio_path(studio.id), class: "studio-button"%>
         </div>
       </div>
-      <table class='studio-detail'>
+      <table class='studio-info'>
         <tr>
-          <td class='icon'><span class="material-icons">commute</span>
-          </td>
-          <td class='detail-subtitle'>アクセス
-          </td>
-          <td><%= studio.access %>
-          </td>
+          <td class='icon'><span class="material-icons">commute</span></td>
+          <td class='detail-subtitle'>アクセス</td>
+          <td><%= studio.access %></td>
         </tr>
         <tr>
-          <td class='icon'><span class="material-icons">meeting_room</span>
-          </td>
-          <td class='detail-subtitle'>部屋数
-          </td>
-          <td class='detail-content'><%= studio.spaces.length %>
-          </td>
+          <td class='icon'><span class="material-icons">meeting_room</span></td>
+          <td class='detail-subtitle'>部屋数</td>
+          <td class='detail-content'><%= studio.spaces.length %></td>
         </tr>
         <tr>
-          <td class='icon'><span class="material-icons">schedule</span>
-          </td>
-          <td class='detail-subtitle'>営業時間
-          </td>
-          <td class='detail-content'><%= "#{studio.business_hours_start.strftime("%H:%M")}〜#{studio.business_hours_end.strftime("%H:%M")}" %>
-          </td>
+          <td class='icon'><span class="material-icons">schedule</span></td>
+          <td class='detail-subtitle'>営業時間</td>
+          <td class='detail-content'><%= "#{studio.business_hours_start.strftime("%H:%M")}〜#{studio.business_hours_end.strftime("%H:%M")}" %></td>
         </tr>
         <tr>
-          <td class='icon'><span class="material-icons">event_available</span>
-          </td>
-          <td class='detail-subtitle'>営業曜日
-          </td>
+          <td class='icon'><span class="material-icons">event_available</span></td>
+          <td class='detail-subtitle'>営業曜日</td>
           <td class='detail-content'>
             <% StudioBday.where(studio_id: studio.id).order(bday_id: :asc).each do |bday| %>
               <%= Bday.find(bday.bday_id).bday %>
@@ -53,7 +42,6 @@
           </td>
         </tr>
       </table>
-      
     </div>
   </div>
 </div>

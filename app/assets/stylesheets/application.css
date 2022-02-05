@@ -15,11 +15,12 @@
  */
 
 
-a, a:visited, a:hover, a:active {
+
+a:link, a:visited, a:hover, a:active {
   color: inherit;
 }
 
- @font-face {
+@font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
