@@ -20,6 +20,32 @@ a:link, a:visited, a:hover, a:active {
   color: inherit;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+th, td {
+  border: none;
+}
+
+
+
+.icon {
+  width: 50px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.detail-subtitle {
+  width: 80px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.detail-content {
+  width: calc(100% - 130px);
+}
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;

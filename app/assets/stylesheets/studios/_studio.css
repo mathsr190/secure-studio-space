@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 .studio-block {
   width: 900px;
   margin: 20px auto;
@@ -26,7 +22,7 @@
 
 }
 
-.block-left {
+.studio-block-left {
   width: 250px;
   display: flex;
   justify-content: center;
@@ -40,7 +36,7 @@
   height: 220px;
 }
 
-.block-right {
+.studio-block-right {
   width: 650px;
   vertical-align: baseline;
 }
@@ -81,21 +77,4 @@
   table-layout: fixed;
 }
 
-th, td {
-  border: none;
-}
 
-.icon {
-  width: 40px;
-  text-align: center;
-}
-
-.detail-subtitle {
-  width: 80px;
-  text-align: left;
-  font-weight: bold;
-}
-
-.detail-content {
-  width: 510px;
-}

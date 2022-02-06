@@ -1,0 +1,14 @@
+.rooms-list-title {
+  display: block;
+  border-bottom: 3px dotted #fffffe;
+  padding: 5px 15px;
+  margin: 20px 0 0;
+  font-size: 22px;
+  background-color: #00473e;
+  color: #fffffe;
+}
+
+.rooms-list {
+  margin: auto;
+  background-color: #00473e;
+}

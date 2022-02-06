@@ -1,4 +1,37 @@
-    <p><%= link_to "スペース新規登録", new_studio_space_path(@studio.id), class: :nav__btn %></p>
-    <p><%= link_to "スタジオに戻る", studio_path(@studio.id), class: :nav__btn %></p>
+<%= render "shared/second-header" %>
+<div class='body'>
+  <div class='content'>
+    <h2 class='studio-name-title'><%=link_to "#{@studio.manager.studio_name}(#{@studio.manager.studio_name_kana})", studio_path(@studio.id) %></h2>
+    <%#ナビゲーションバー開始%>
+    <div class='navbar'>
+      <ul class='nav-lists'>
+      <%= link_to(studio_path(@studio.id), class:"nav-list-deco-none") do%>
+      <li class='inactive'>スタジオ情報</li>
+      <% end %>
+      <%= link_to(studio_spaces_path(@studio.id), class:"nav-list-deco-none") do%>
+      <li class='active'>部屋</li>
+      <% end %>
+      <%= link_to("#", class:"nav-list-deco-none") do%>
+      <li class='inactive'>お知らせ</li>
+      <% end %>
+      <%= link_to("#", class:"nav-list-deco-none") do%>
+      <li class='inactive'>地図</li>
+      <% end %>
+      <%= link_to("#", class:"nav-list-deco-none") do%>
+      <li class='inactive'>レビュー</li>
+      <% end %>
+      </ul>
+    </div>
+    <%#ナビゲーションバー終了%>
 
-    <%= render partial: 'spaces/space', collection: @studio.spaces%>
+    <h3 class='rooms-list-title'>部屋一覧</h2>
+    <div class='rooms-list'>
+      <%= render partial: 'space', collection: @studio.spaces %>
+    </div>
+  </div>
+</div>
+
+
+
+<p><%= link_to "スペース新規登録", new_studio_space_path(@studio.id), class: :nav__btn %></p>
+<p><%= link_to "スタジオに戻る", studio_path(@studio.id), class: :nav__btn %></p>

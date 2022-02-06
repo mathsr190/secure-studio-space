@@ -1,5 +1,26 @@
-
-<%= space.attributes%><br/>
-<%= space.id%><br/>
-<%= image_tag space.image, class: 'space-image' if space.image.attached? %>
-<%= link_to '詳細はこちらから', studio_space_path(space.id.to_i, studio_id: @studio.id) %>
+<div class='space-block'>
+  <div class='space-block-header'>
+    <h4><%= link_to space.space_name, studio_space_path(space.id, studio_id: space.studio.id), class: "space-name" %></h3>
+  </div>
+  <div class='space-image'>
+    <%= link_to (image_tag space.image, class: 'space-mini-image' if(space.image.attached?)), studio_space_path(space.id, studio_id: space.studio.id) %>
+  </div>
+  <div class='space-info'>
+    <%= truncate(space.info, length: 50) %>
+  </div>
+  <table class='space-info-table'>
+    <tr>
+      <td class='icon'><span class="material-icons">payments</span></td>
+      <td class='detail-subtitle'>料金</td>
+      <td class='detail-content'><%= "¥ #{[space.fee_morning, space.fee_day, space.fee_night].min}〜"%></td>
+    </tr>
+    <tr>
+      <td class='icon'><span class="material-icons">open_in_full</span></td>
+      <td class='detail-subtitle'>広さ</td>
+      <td class='detail-content'><%= space.size %>&#13217</td>
+    </tr>
+  </table>
+  <div class='space-link-button'>
+    <%= link_to "詳細はこちら", studio_space_path(space.id, studio_id: space.studio.id), class: "space-button"%>
+  </div>
+</div>
