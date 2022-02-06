@@ -26,7 +26,17 @@
 
     <h3 class='rooms-list-title'>部屋一覧</h2>
     <div class='rooms-list'>
-      <%= render partial: 'space', collection: @studio.spaces %>
+      <% if @studio.spaces.empty? %>
+        <p class='room-empty-alert'>部屋の登録がされていません。スタジオ管理者にお問い合わせください。</p>
+      <% else %>
+        <%= render partial: 'space', collection: @studio.spaces %>
+      <% end %>
+    </div>
+
+    <div class='nav-btn'>
+      <% if manager_signed_in? && @studio.manager.id == current_manager.id%>
+        <%= link_to "部屋の新規登録", new_studio_space_path(@studio.id),  class: "space-new-btn" %>
+      <% end %>
     </div>
   </div>
 </div>

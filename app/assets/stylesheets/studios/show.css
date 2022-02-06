@@ -48,17 +48,6 @@
   width: 100%;
 }
 
-
-
-.nav-btn {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  color: #00332c;
-
-}
-
-
 .studio-edit-btn {
   text-align: center;
   background-color: #fa5246;

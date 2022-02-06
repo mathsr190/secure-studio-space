@@ -6,3 +6,31 @@
   margin: auto;
   padding: 20px 30px;
 }
+
+
+th, td {
+  border: none;
+}
+
+.icon {
+  width: 50px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.detail-subtitle {
+  width: 80px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.detail-content {
+  width: calc(100% - 130px);
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fffffe;
+}

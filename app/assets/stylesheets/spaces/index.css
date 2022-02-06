@@ -12,3 +12,23 @@
   margin: auto;
   background-color: #00473e;
 }
+
+.room-empty-alert {
+  color: #fffffe;
+  font-size: 20px;
+  display: block;
+  padding: 10px 30px;
+  
+}
+
+.space-new-btn {
+  text-align: center;
+  background-color: #fa5246;
+  font-size: 24px;
+  width: 300px;
+  font-weight: bold;
+  margin: 10px auto;
+  padding: 20px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+}
