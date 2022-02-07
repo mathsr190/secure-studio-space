@@ -1,5 +1,7 @@
 <%= form_with model: @studio, local: true do |f| %>
-<%= render 'shared/error_messages', model: f.object %>
+<div class='error-messages-div'>
+  <%= render 'shared/error_messages', model: f.object %>
+</div>
 <div class='form-div'>
   <div class='form-div-label'>
     <label>スタジオ紹介文</label>
