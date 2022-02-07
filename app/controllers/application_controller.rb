@@ -2,14 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action  :store_location
 
-  def after_sign_in_path_for(resource)
-    if (session[:previous_url] == root_path)
-      super
-    else
-      session[:previous_url] || root_path
-    end
-  end
-
   def after_sign_out_path_for(resource)
     if (session[:previous_url] == root_path)
       super
