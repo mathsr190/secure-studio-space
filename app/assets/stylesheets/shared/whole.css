@@ -1,11 +1,16 @@
 .body {
   background-color: #f2f7f5;
 }
+.body-black {
+  background-color: #00473e;
+}
+
 .content {
   width: 1000px;
   margin: auto;
   padding: 20px 30px;
 }
+
 
 th, td {
   border: none;

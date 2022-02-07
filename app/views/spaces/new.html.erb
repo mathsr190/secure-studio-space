@@ -1,2 +1,9 @@
-<h2>スペース新規登録画面だよ</h2>
-<%= render partial: 'form', locals: {url: studio_spaces_path, method: :post} %>
+<%= render "shared/third-header" %>
+<div class='body-black'>
+  <div class='content'>
+    <div class = 'form-content-white'>
+      <h2 class='studio-new-edit-title'>部屋新規登録</h2>
+      <%= render partial: 'form', locals: {url: studio_spaces_path, method: :post} %>
+    </div>
+  </div>
+</div>

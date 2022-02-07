@@ -1,3 +1,15 @@
+.form-content {
+  border: 1px solid #00332c;
+  border-radius: 20px;
+  padding: 10px 0;
+}
+.form-content-white {
+  border: 1px solid #00332c;
+  border-radius: 20px;
+  padding: 10px 0;
+  background-color: #f2f7f5;
+}
+
 .studio-new-edit-title {
   display: block;
   text-align: center;
@@ -7,12 +19,6 @@
   border-bottom: 2px solid #00332c;
   color: #00473e;
   width: 500px;
-}
-
-.form-content {
-  border: 1px solid #00332c;
-  border-radius: 20px;
-  padding: 10px 0;
 }
 
 .error-messages-div {
@@ -69,6 +75,12 @@
   font-size: 16px;
   display: flex;
   justify-content: space-around;
+}
+.form-input-field-mini {
+  width: 25%;
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 3px;
 }
 
 .checkbox-input-field {
