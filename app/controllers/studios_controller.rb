@@ -1,12 +1,13 @@
 class StudiosController < ApplicationController
   before_action :authenticate_manager!, only: [:new, :edit]
-  before_action :move_to_index, only: [:new]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_studio, only: [:show, :edit, :update]
+  before_action :move_to_index_manager, only: [:edit]
   def index
     @studios = Studio.all.includes(:manager, :spaces)
   end
 
   def show
-    @studio = Studio.find(params[:id])
     @studiobday = StudioBday.where(studio_id: @studio.id).order(bday_id: :asc)
   end
 
@@ -24,12 +25,9 @@ class StudiosController < ApplicationController
   end
 
   def edit
-    @studio = Studio.find(params[:id])
   end
 
   def update
-    @manager = current_manager
-    @studio = @manager.studio
     if @studio.update(studio_params)
       redirect_to studio_path(params[:id])
     else
@@ -39,13 +37,18 @@ class StudiosController < ApplicationController
 
   private
 
+  def set_studio
+    @studio = Studio.find(params[:id])
+  end
+
   def studio_params
     params.require(:studio).permit(:introduction, :postal_code, :prefecture_id, :city, :address, :access, :business_hours_start,
                                    :business_hours_end, :phone_number, :image, { bday_ids: [] }).merge(manager_id: current_manager.id)
   end
 
-  def move_to_index
-    @manager = current_manager
-    redirect_to action: :index unless @manager.studio.nil?
+  def move_to_index_manager
+    @studio = Studio.find(params[:id])
+    redirect_to action: :index if @studio.manager.id != current_manager.id
   end
 end
+#!current_manager.studio.nil? ||
