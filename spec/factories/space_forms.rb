@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :space_form do
-    info              { Faker::Lorem.sentence }
+    info              { Faker::Lorem.characters(number: 99) }
     gimei = Gimei.name.last # gimeiでひらがな自動生成代用
     space_name        { gimei.kanji }
     space_name_kana   { gimei.hiragana }

@@ -1,7 +1,7 @@
 <%= render "shared/second-header" %>
 <div class='body'>
   <div class='content'>
-    <h2 class='studio-name-title'><%=link_to "#{@studio.manager.studio_name}(#{@studio.manager.studio_name_kana})", studio_path(@studio.id) %></h2>
+    <h2 class='studio-name-title'><%=link_to "#{@studio.manager.studio_name} (#{@studio.manager.studio_name_kana})", studio_path(@studio.id) %></h2>
     <%#ナビゲーションバー開始%>
     <div class='navbar'>
       <ul class='nav-lists'>
@@ -24,10 +24,10 @@
     </div>
     <%#ナビゲーションバー終了%>
 
-    <h3 class='rooms-list-title'>部屋一覧</h2>
-    <div class='rooms-list'>
+    <h3 class='spaces-list-title'>部屋一覧</h2>
+    <div class='spaces-list'>
       <% if @studio.spaces.empty? %>
-        <p class='room-empty-alert'>部屋の登録がされていません。スタジオ管理者にお問い合わせください。</p>
+        <p class='space-empty-alert'>部屋の登録がされていません。スタジオ管理者にお問い合わせください。</p>
       <% else %>
         <%= render partial: 'space', collection: @studio.spaces %>
       <% end %>

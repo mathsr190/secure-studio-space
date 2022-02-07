@@ -1,4 +1,4 @@
-.rooms-list-title {
+.spaces-list-title {
   display: block;
   border-bottom: 3px dotted #fffffe;
   padding: 5px 15px;
@@ -8,12 +8,12 @@
   color: #fffffe;
 }
 
-.rooms-list {
+.spaces-list {
   margin: auto;
   background-color: #00473e;
 }
 
-.room-empty-alert {
+.space-empty-alert {
   color: #fffffe;
   font-size: 20px;
   display: block;

@@ -1,13 +1,86 @@
 <%= render "shared/second-header" %>
-<h2>ルーム詳細を見せちゃうよ</h2>
+<div class='body'>
+  <div class='content'>
+    <h2 class='studio-name-title'><%=link_to "#{@studio.manager.studio_name} (#{@studio.manager.studio_name_kana})", studio_path(@studio.id) %></h2>
+    <%#ナビゲーションバー開始%>
+    <div class='navbar'>
+      <ul class='nav-lists'>
+      <%= link_to(studio_path(@studio.id), class:"nav-list-deco-none") do%>
+      <li class='inactive'>スタジオ情報</li>
+      <% end %>
+      <%= link_to(studio_spaces_path(@studio.id), class:"nav-list-deco-none") do%>
+      <li class='active'>部屋</li>
+      <% end %>
+      <%= link_to("#", class:"nav-list-deco-none") do%>
+      <li class='inactive'>お知らせ</li>
+      <% end %>
+      <%= link_to("#", class:"nav-list-deco-none") do%>
+      <li class='inactive'>地図</li>
+      <% end %>
+      <%= link_to("#", class:"nav-list-deco-none") do%>
+      <li class='inactive'>レビュー</li>
+      <% end %>
+      </ul>
+    </div>
+    <%#ナビゲーションバー終了%>
+    <h3 class='space-name-title'><%= "#{@space.space_name} (#{@space.space_name_kana})"%></h2>
+    <div class='space-show-content'>
+      <div class='space-show-image'>
+        <%= image_tag @space.image, class: 'space-image' if @space.image.attached? %>
+      </div>
+      <div class='space-show-info'>
+        <%= @space.info%>
+      </div>
+      <div class='space-show-reservation-btn-div'>
+        <% if user_signed_in? %>
+          <%= link_to "予約する",studio_space_reservations_path(@space.id, studio_id: @studio.id),  class: "space-reservation-btn" %>
+        <% else %>
+          <p class='space-reservation-btn-invalid'>予約する</p>
+          <p>※予約には<%= link_to "ユーザーログイン", new_user_session_path %>が必要です。 未登録の方はユーザー<%= link_to "新規登録", new_user_registration_path %>をお願いいたします。</p>
+        <% end %>
+      </div>
+    </div>
 
-<%= @space.attributes%><br/>
-<%= @space.id%><br/>
-<%= image_tag @space.image, class: 'space-image' if @space.image.attached? %>
+    <h4 class='space-detail-information-title'>スタジオ詳細情報</h3></h3>
+    <table class='space-detail-info'>
+      <tr>
+        <td class='icon'><span class="material-icons">square_foot</span></td>
+        <td class='detail-subtitle'>幅&times;奥行き</td>
+        <td class='detail-content'><%= @space.length %>m &times; <%= @space.width %>m</td>
+      </tr>
+      <tr>
+        <td class='icon'><span class="material-icons">open_in_full</span></td>
+        <td class='detail-subtitle'>広さ</td>
+        <td class='detail-content'><%= @space.size %>&#13217</td>
+      </tr>
+      <tr>
+        <td class='icon'><span class="material-icons">height</span></td>
+        <td class='detail-subtitle'>高さ</td>
+        <td class='detail-content'><%= @space.height %>m</td>
+      </tr>
+      <tr>
+        <td class='icon'><span class="material-icons">wb_sunny</span></td>
+        <td class='detail-subtitle'>料金(朝)</td>
+        <td class='detail-content'>¥ <%= @space.fee_morning %> / 1hour</td>
+      </tr>
+      <tr>
+        <td class='icon'><span class="material-icons">brightness_high</span></td>
+        <td class='detail-subtitle'>料金(昼)</td>
+        <td class='detail-content'>¥ <%= @space.fee_day %> / 1hour</td>
+      </tr>
+      <tr>
+        <td class='icon'><span class="material-icons">nightlight</span></td>
+        <td class='detail-subtitle'>料金(夜)</td>
+        <td class='detail-content'>¥ <%= @space.fee_night %> / 1hour</td>
+      </tr>
 
-<%= link_to '編集', edit_studio_space_path(@space.id, studio_id: @studio.id) %>
-<%= link_to '予約したいね', studio_space_reservations_path(@space.id, studio_id: @studio.id) %>
+    </table>
 
-
-
-<%= link_to '部屋一覧に戻る', studio_path(@studio.id)%>
+    <div class='nav-btn'>
+    <%= link_to "部屋一覧に戻る", studio_spaces_path(@studio.id),  class: "space-index-back-btn" %>
+      <% if manager_signed_in? && @studio.manager.id == current_manager.id%>
+        <%= link_to "部屋の編集", edit_studio_space_path(@space.id, studio_id: @studio.id),  class: "space-edit-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>

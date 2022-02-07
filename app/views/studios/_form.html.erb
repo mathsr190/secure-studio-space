@@ -1,30 +1,98 @@
 <%= form_with model: @studio, local: true do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
-<div>紹介文</div>
-<%= f.text_area :introduction, id:"introduction", placeholder:"紹介文(必須 140文字まで)", maxlength:"140"%>
-<div>郵便番号(半角、ハイフンを入れてください)</div>
-<%= f.text_field :postal_code, id:"postal-code", placeholder:"例)123-4567", maxlength:"8"%>
-<div>都道府県</div>
-<%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"},{id:"prefecture"})%>
-
-<div>市区町村</div>
-<%= f.text_field :city, id:"city", placeholder:"豊島区"%>
-<div>それ以降の住所</div>
-<%= f.text_field :address, id:"address", placeholder:"東池袋1-1-59"%>
-<div>アクセス</div>
-<%= f.text_field :access, id:"access", placeholder:"JR池袋駅北口から徒歩2分"%>
-<div>営業日</div>
-<%= f.collection_check_boxes(:bday_ids, Bday.all, :id, :bday, {include_hidden: false}, {id:"bday-ids"})%>
-<div>営業開始時間</div>
-<%= f.time_select :business_hours_start, { default:Date.today + 9.hours + 0.minutes, start_hour: 9, end_hour:22, minute_step: 5, ignore_date: true}, {id:"business-hours-start"}%>
-<div>営業終了時間</div>
-<%= f.time_select :business_hours_end, { default:Date.today + 22.hours + 0.minutes, start_hour: 9, end_hour:22, minute_step: 5, ignore_date: true}, {id:"business-hours-end"}%>
-<div>電話番号</div>
-<%= f.telephone_field :phone_number, id:"phone-number", placeholder:"例)09012345678", maxlength:"11"%>
-<p>
-クリックして画像(png.jpg)をアップロード
-</p>
-<%= f.file_field :image, id:"item-image" %>
-<br/>
-<%= f.submit "登録", id:"button"%>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>スタジオ紹介文</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.text_area :introduction, id:"introduction", placeholder:"紹介文(必須 140文字まで)", maxlength:"140", class:"form-input-field"%>
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>郵便番号（半角、ハイフンを入れてください）</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.text_field :postal_code, id:"postal-code", placeholder:"例)123-4567", maxlength:"8", class:"form-input-field"%> 
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>都道府県</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"},{id:"prefecture",class:"form-input-field"})%>
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>市区町村</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.text_field :city, id:"city", placeholder:"豊島区", class:"form-input-field"%>
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>それ以降の住所</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.text_field :address, id:"address", placeholder:"東池袋1-1-59", class:"form-input-field"%>
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>アクセス</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.text_field :access, id:"access", placeholder:"JR池袋駅北口から徒歩2分", class:"form-input-field"%>
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>営業日</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.collection_check_boxes(:bday_ids, Bday.all, :id, :bday, {include_hidden: false}, {id:"bday-ids",class:"checkbox-input-field"})%>
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>営業時間</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.time_select :business_hours_start, { default:Date.today + 9.hours + 0.minutes, start_hour: 9, end_hour:22, minute_step: 5, ignore_date: true}, {id:"business-hours-start", class:"select-input-field"}%>
+    〜
+    <%= f.time_select :business_hours_end, { default:Date.today + 22.hours + 0.minutes, start_hour: 9, end_hour:22, minute_step: 5, ignore_date: true}, {id:"business-hours-end", class:"select-input-field"}%>
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>電話番号</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.telephone_field :phone_number, id:"phone-number", placeholder:"例)09012345678", maxlength:"11", class:"form-input-field"%> 
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>スタジオ画像</label>
+    <span class='indispensable'>必須</span>
+    <p>クリックして画像(png,jpg)をアップロード</p>
+  </div>
+  <div class='form-input-div'>
+    <%= f.file_field :image, id:"image" %>
+  </div>
+</div>
+<%= f.submit "登録", id:"button", class:"form-submit-btn"%>
 <% end %>
+

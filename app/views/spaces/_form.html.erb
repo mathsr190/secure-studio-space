@@ -3,7 +3,7 @@
 <%= form_with model: @space_form, url: url, method: method, id: 'new-space', local: true do |f| %>
 <%= render 'shared/error_messages', model: @space_form %>
 <div>紹介文</div>
-<%= f.text_area :info, id:"info", placeholder:"スペース紹介文(必須 140文字まで)", maxlength:"140"%>
+<%= f.text_area :info, id:"info", placeholder:"スペース紹介文(必須 99文字まで)", maxlength:"99"%>
 
 <div>部屋名</div>
 <%= f.text_field :space_name, id:"space-name", placeholder:"練習スタジオ"%>

@@ -7,7 +7,6 @@
   padding: 20px 30px;
 }
 
-
 th, td {
   border: none;
 }
@@ -19,9 +18,9 @@ th, td {
 }
 
 .detail-subtitle {
-  width: 80px;
   text-align: left;
   font-weight: bold;
+  width: 80px;
 }
 
 .detail-content {

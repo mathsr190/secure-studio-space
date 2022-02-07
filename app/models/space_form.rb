@@ -7,7 +7,7 @@ class SpaceForm
 
   with_options presence: true do
     validates :image
-    validates :info
+    validates :info, length: { maximum:99, message: "is too long" }
     validates :space_name
     validates :space_name_kana, format: { with: /\A[ぁ-んー－]+\z/ }
     with_options numericality: { greater_than: 0, less_than: 2500, message: 'is invalid' } do

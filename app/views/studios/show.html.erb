@@ -1,7 +1,7 @@
 <%= render "shared/second-header" %>
 <div class='body'>
   <div class='content'>
-    <h2 class='studio-name-title'><%=link_to "#{@studio.manager.studio_name}(#{@studio.manager.studio_name_kana})", studio_path(@studio.id) %></h2>
+    <h2 class='studio-name-title'><%=link_to "#{@studio.manager.studio_name} (#{@studio.manager.studio_name_kana})", studio_path(@studio.id) %></h2>
     <%#ナビゲーションバー開始%>
     <div class='navbar'>
       <ul class='nav-lists'>
@@ -37,37 +37,37 @@
       <tr>
         <td class='icon'><span class="material-icons">phone</span></td>
         <td class='detail-subtitle'>電話番号</td>
-        <td><%= @studio.phone_number %></td>
+        <td class='detail-content'><%= @studio.phone_number %></td>
       </tr>
       <tr>
         <td class='icon'><span class="material-icons">location_on</span></td>
         <td class='detail-subtitle'>住所</td>
-        <td><%= link_to "〒#{@studio.postal_code} #{@studio.prefecture.name + @studio.city + @studio.address}", "#", class: "link_to" %></td>
+        <td class='detail-content'><%= link_to "〒#{@studio.postal_code} #{@studio.prefecture.name + @studio.city + @studio.address}", "#", class: "link_to" %></td>
       </tr>
       <tr>
         <td class='icon'><span class="material-icons">commute</span></td>
         <td class='detail-subtitle'>アクセス</td>
-        <td><%= @studio.access %></td>
+        <td class='detail-content'><%= @studio.access %></td>
       </tr>
-        <tr>
-          <td class='icon'><span class="material-icons">meeting_room</span></td>
-          <td class='detail-subtitle'>部屋数</td>
-          <td class='detail-content'><%= link_to @studio.spaces.length, studio_spaces_path(@studio.id), class:"link_to"%></td>
-        </tr>
-        <tr>
-          <td class='icon'><span class="material-icons">schedule</span></td>
-          <td class='detail-subtitle'>営業時間</td>
-          <td class='detail-content'><%= "#{@studio.business_hours_start.strftime("%H:%M")}〜#{@studio.business_hours_end.strftime("%H:%M")}" %></td>
-        </tr>
-        <tr>
-          <td class='icon'><span class="material-icons">event_available</span></td>
-          <td class='detail-subtitle'>営業曜日</td>
-          <td class='detail-content'>
-            <% StudioBday.where(studio_id: @studio.id).order(bday_id: :asc).each do |bday| %>
-              <%= Bday.find(bday.bday_id).bday %>
-            <% end %>         
-          </td>
-        </tr>
+      <tr>
+        <td class='icon'><span class="material-icons">meeting_room</span></td>
+        <td class='detail-subtitle'>部屋数</td>
+        <td class='detail-content'><%= link_to @studio.spaces.length, studio_spaces_path(@studio.id), class:"link_to"%></td>
+      </tr>
+      <tr>
+        <td class='icon'><span class="material-icons">schedule</span></td>
+        <td class='detail-subtitle'>営業時間</td>
+        <td class='detail-content'><%= "#{@studio.business_hours_start.strftime("%H:%M")}〜#{@studio.business_hours_end.strftime("%H:%M")}" %></td>
+      </tr>
+      <tr>
+        <td class='icon'><span class="material-icons">event_available</span></td>
+        <td class='detail-subtitle'>営業曜日</td>
+        <td class='detail-content'>
+          <% StudioBday.where(studio_id: @studio.id).order(bday_id: :asc).each do |bday| %>
+            <%= Bday.find(bday.bday_id).bday %>
+          <% end %>         
+        </td>
+      </tr>
     </table>
     <div class='nav-btn'>
       <% if manager_signed_in? && @studio.manager.id == current_manager.id%>

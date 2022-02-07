@@ -2,7 +2,7 @@
   <div class='space-block-header'>
     <h4><%= link_to space.space_name, studio_space_path(space.id, studio_id: space.studio.id), class: "space-name" %></h3>
   </div>
-  <div class='space-image'>
+  <div class='space-image-div'>
     <%= link_to (image_tag space.image, class: 'space-mini-image' if(space.image.attached?)), studio_space_path(space.id, studio_id: space.studio.id) %>
   </div>
   <div class='space-info'>
