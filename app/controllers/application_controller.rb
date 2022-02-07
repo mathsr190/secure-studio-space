@@ -3,13 +3,12 @@ class ApplicationController < ActionController::Base
   after_action  :store_location
 
   def after_sign_out_path_for(resource)
-    if (session[:previous_url] == root_path)
+    if session[:previous_url] == root_path
       super
     else
       session[:previous_url] || root_path
     end
   end
-
 
   private
 
@@ -20,15 +19,12 @@ class ApplicationController < ActionController::Base
   end
 
   def store_location
-    if (request.fullpath != new_user_registration_path &&
-    request.fullpath != new_user_session_path &&
-    # request.fullpath != "/users/password" &&
-    request.fullpath !~ Regexp.new("\\A/users/password.*\\z") &&
-    !request.xhr?) 
-      session[:previous_url] = request.fullpath 
+    if request.fullpath != new_user_registration_path &&
+       request.fullpath != new_user_session_path &&
+       # request.fullpath != "/users/password" &&
+       request.fullpath !~ Regexp.new('\\A/users/password.*\\z') &&
+       !request.xhr?
+      session[:previous_url] = request.fullpath
     end
   end
-
-
-
 end

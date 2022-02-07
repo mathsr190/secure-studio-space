@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :space do
     # reservation_form_spec.rbで使用するためのもの
     # 普通のspaceのmodelのテストでは使用しない。
-    info              { Faker::Lorem.characters(number: 198) }
+    info { Faker::Lorem.characters(number: 198) }
     gimei = Gimei.name.last # gimeiでひらがな自動生成代用
     space_name        { gimei.kanji }
     space_name_kana   { gimei.hiragana }

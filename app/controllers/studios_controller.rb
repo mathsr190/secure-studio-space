@@ -51,4 +51,3 @@ class StudiosController < ApplicationController
     redirect_to action: :index if @studio.manager.id != current_manager.id
   end
 end
-#!current_manager.studio.nil? ||

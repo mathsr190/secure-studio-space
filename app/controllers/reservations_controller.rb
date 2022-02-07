@@ -17,19 +17,19 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_form_params
-    
     params.require(:reservation_form).permit(:price).merge(space_id: params[:space_id], user_id: current_user.id, token: params[:token],
-      time_start: Time.new(
-        params[:reservation_form]["time_start(1i)"].to_i,
-        params[:reservation_form]["time_start(2i)"].to_i,
-        params[:reservation_form]["time_start(3i)"].to_i,
-        params[:reservation_form]["time_start(4i)"].to_i,0,0),
-      time_end: Time.new(
-        params[:reservation_form]["time_end(1i)"].to_i,
-        params[:reservation_form]["time_end(2i)"].to_i,
-        params[:reservation_form]["time_end(3i)"].to_i,
-        params[:reservation_form]["time_end(4i)"].to_i,0,0)
-      )
+                                                           time_start: Time.new(
+                                                             params[:reservation_form]['time_start(1i)'].to_i,
+                                                             params[:reservation_form]['time_start(2i)'].to_i,
+                                                             params[:reservation_form]['time_start(3i)'].to_i,
+                                                             params[:reservation_form]['time_start(4i)'].to_i, 0, 0
+                                                           ),
+                                                           time_end: Time.new(
+                                                             params[:reservation_form]['time_end(1i)'].to_i,
+                                                             params[:reservation_form]['time_end(2i)'].to_i,
+                                                             params[:reservation_form]['time_end(3i)'].to_i,
+                                                             params[:reservation_form]['time_end(4i)'].to_i, 0, 0
+                                                           ))
   end
 
   def pay_jp
