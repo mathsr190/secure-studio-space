@@ -21,6 +21,16 @@
   width: 500px;
 }
 
+.form-new-edit-subtitle {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  margin: 20px auto;
+  border-bottom: 1px dashed #00332c;
+  color: #00473e;
+  width: 450px;
+}
+
 .error-messages-div {
   margin: auto;
   width: 450px;
@@ -121,6 +131,18 @@
   border-radius: 10px;
   text-decoration: none;
   color: #fffffe
+}
+.form-submit-btn-user {
+  display: block;
+  text-align: center;
+  background-color: #faae2b;
+  font-size: 24px;
+  width: 300px;
+  font-weight: bold;
+  margin: 10px auto;
+  padding: 20px 10px;
+  border-radius: 10px;
+  text-decoration: none;
 }
 .form-submit-btn-reservation {
   display: block;

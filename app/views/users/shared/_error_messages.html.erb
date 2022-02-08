@@ -1,5 +1,6 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation">
+  <div id="error_explanation" class="error-alert">
+    <h3 class='error-alert-title'>入力に不備があるようです</h3>
     <h2>
       <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
