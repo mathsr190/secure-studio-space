@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :create]
   def index
     @reservation_form = ReservationForm.new
   end

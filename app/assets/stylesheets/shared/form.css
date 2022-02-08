@@ -10,7 +10,7 @@
   background-color: #f2f7f5;
 }
 
-.studio-new-edit-title {
+.form-new-edit-title {
   display: block;
   text-align: center;
   font-size: 20px;
@@ -97,6 +97,18 @@
   font-size: 16px;
 }
 
+.year {
+  width: 22%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.month, .day, .hour {
+  width: 17%;
+  padding: 10px;
+  font-size: 16px;
+}
+
 .form-submit-btn {
   display: block;
   text-align: center;
@@ -109,4 +121,17 @@
   border-radius: 10px;
   text-decoration: none;
   color: #fffffe
+}
+.form-submit-btn-reservation {
+  display: block;
+  text-align: center;
+  background-color: #ffa8ba;
+  font-size: 24px;
+  width: 300px;
+  font-weight: bold;
+  margin: 10px auto;
+  padding: 20px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #00473e;
 }
