@@ -1,8 +1,7 @@
 class StudiosController < ApplicationController
   before_action :authenticate_manager!, only: [:new, :edit]
-  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_studio, only: [:show, :edit, :update]
-  before_action :move_to_index_manager, only: [:edit]
+  before_action :move_to_index, only: [:edit]
   def index
     @studios = Studio.all.includes(:manager, :spaces)
   end
@@ -46,7 +45,7 @@ class StudiosController < ApplicationController
                                    :business_hours_end, :phone_number, :image, { bday_ids: [] }).merge(manager_id: current_manager.id)
   end
 
-  def move_to_index_manager
+  def move_to_index
     @studio = Studio.find(params[:id])
     redirect_to action: :index if @studio.manager.id != current_manager.id
   end
