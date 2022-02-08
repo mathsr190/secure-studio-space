@@ -27,6 +27,11 @@ RSpec.describe SpaceForm, type: :model do
         @space_form.valid?
         expect(@space_form.errors.full_messages).to include("Info can't be blank")
       end
+      it '紹介文が100文字以上では保存できない' do
+        @space_form.info = Faker::Lorem.characters(number: 100)
+        @space_form.valid?
+        expect(@space_form.errors.full_messages).to include('Info is too long')
+      end
       it '部屋名が空では保存できない' do
         @space_form.space_name = ''
         @space_form.valid?

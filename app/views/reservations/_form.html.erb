@@ -1,0 +1,62 @@
+<%= form_with model: @reservation_form, url: url, method: method, id: 'reservation-form', local: true do |f| %>
+<div class='error-messages-div'>
+  <%= render 'shared/error_messages', model: @reservation_form %>
+</div>
+
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>使用開始時間</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.datetime_select :time_start, {id:"time-start", use_month_numbers: true, date_separator: "/", start_year: DateTime.now.year , end_year: DateTime.now.year + 1 , default: DateTime.new(DateTime.now.year,DateTime.now.month,DateTime.now.day,DateTime.now.hour,00,00)+1+Rational("1/24"), discard_minute:true , with_css_classes:true} %>: 00
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>使用終了時間</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.datetime_select :time_end, {id:"time-end",use_month_numbers: true, date_separator: "/", start_year: DateTime.now.year , end_year: DateTime.now.year + 1 , default: DateTime.new(DateTime.now.year,DateTime.now.month,DateTime.now.day,DateTime.now.hour,00,00)+1+Rational("2/24"), discard_minute:true , with_css_classes:true} %>: 00
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>値段</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.number_field :price, step: '1', min: 50, max: 9999999, id:"price", placeholder:"例）2400", class:"form-input-field"%>
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>カード番号</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16", class:"form-input-field" %>
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>CVC</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+    <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4", class:"form-input-field" %>
+  </div>
+</div>
+<div class='form-div'>
+  <div class='form-div-label'>
+    <label>有効期限</label>
+    <span class='indispensable'>必須</span>
+  </div>
+  <div class='form-input-div'>
+          <%= f.text_field :exp_month, placeholder:"例)3", class:"form-input-field-mini" %>月
+          <%= f.text_field :exp_year, placeholder:"例)25",class:"form-input-field-mini" %>年
+  </div>
+</div>
+<%= f.submit "登録", id:"button-reservation", class:"form-submit-btn-reservation"%>
+<% end %>

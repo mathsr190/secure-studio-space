@@ -1,4 +1,6 @@
 class SpacesController < ApplicationController
+  before_action :authenticate_manager!, only: [:new, :edit]
+  before_action :move_to_index, only: [:edit]
   def index
     @studio = Studio.find(params[:studio_id])
   end
@@ -56,5 +58,10 @@ class SpacesController < ApplicationController
     # params.require(:space).permit(:info, :space_name, :space_name_kana, :length, :width, :size, :height, :fee_morning, :fee_day, :fee_night, :image).merge(studio_id: params[:studio_id])
     params.require(:space_form).permit(:info, :space_name, :space_name_kana, :length, :width, :size, :height, :fee_morning,
                                        :fee_day, :fee_night, :image).merge(studio_id: params[:studio_id])
+  end
+
+  def move_to_index
+    @space = Space.find(params[:id])
+    redirect_to action: :index if @space.studio.manager.id != current_manager.id
   end
 end

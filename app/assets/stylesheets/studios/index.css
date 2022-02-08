@@ -1,0 +1,26 @@
+.head-part {
+  padding: 15px 0;
+  color: #00473e;
+}
+
+.main-title {
+  line-height: 1.3;
+  font-size: 32px;
+}
+
+.sub-title {
+  font-size: 22px;
+}
+
+.studio-list-title {
+  display: block;
+  border-left: 6px double #fffffe;
+  padding: 5px 15px;
+  font-size: 22px;
+  background-color: #00473e;
+  color: #fffffe;
+}
+
+.studio-list {
+  margin: auto;
+}

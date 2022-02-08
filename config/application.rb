@@ -16,7 +16,7 @@ module SecureStudioSpace
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    #config.time_zone = 'Asia/Tokyo'
+    config.time_zone = 'Asia/Tokyo'
     # localeをja
     #config.i18n.default_locale = :ja
   end

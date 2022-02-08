@@ -1,0 +1,78 @@
+.studio-block {
+  width: 900px;
+  margin: 20px auto;
+  border: solid 2px #00332c;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.studio-block-header {
+  padding: 0 10px;
+}
+
+.studio-name {
+  font-size: 20px;
+}
+
+.studio-block-content {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.studio-block-left {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.studio-mini-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  height: 220px;
+}
+
+.studio-block-right {
+  width: 650px;
+  vertical-align: baseline;
+}
+
+.studio-introduction-and-button {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.studio-introduction {
+  width: 480px;
+  text-decoration: underline;
+  color: #475d5b;
+
+}
+.studio-link-button {
+  width: 150px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.studio-button {
+  display: block;
+  border: none;
+  padding: 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color:#00473e;
+  background-color: #faae2b;
+}
+
+.studio-info {
+  margin: 10px;
+  width: 630px;
+  table-layout: fixed;
+}

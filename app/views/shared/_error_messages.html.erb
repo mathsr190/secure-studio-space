@@ -1,5 +1,6 @@
 <% if model.errors.any? %>
 <div class="error-alert">
+  <h3 class='error-alert-title'>入力に不備があるようです</h3>
   <ul>
     <% model.errors.full_messages.each do |message| %>
     <li class='error-message'><%= message %></li>

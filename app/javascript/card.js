@@ -1,6 +1,6 @@
 const pay = () => {
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
-  const submit = document.getElementById("button_reservation");
+  const submit = document.getElementById("button-reservation");
   submit.addEventListener("click", (e) => {
     e.preventDefault();
 

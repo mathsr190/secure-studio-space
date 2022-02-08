@@ -23,7 +23,6 @@ studio_1 = Studio.new(
 )
 studio_1.image.attach(io: File.open(Rails.root.join("./public/images/studio_test_image.png")), filename: 'studio_test_image.png')
 studio_1.save
-binding.pry
 StudioBday.create!(studio_id: studio_1.id, bday_id: 1)
 StudioBday.create!(studio_id: studio_1.id, bday_id: 2)
 

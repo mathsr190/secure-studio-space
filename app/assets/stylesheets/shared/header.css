@@ -3,41 +3,111 @@
 }
 
 .top-page-header {
-  width: 100vw;
-  padding: 2vh 10vw;
-  display: flex;
-  background-color: pink;
+  width: 100%;
+  padding: 2vh 0;
+  background-color: #f2f7f5;
+  color: #00473e;
+  border-bottom: solid 1px #00473e;
 }
 
 .nav {
   font-size: 18px;
+  width: 1000px;
+  height: 120px;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+}
+
+.nav-left {
+  min-width: 250px ;
+}
+
+.sss-icon {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+
+
+.nav-right {
+  width: 750px;
+}
+
+.lists-div{
+  height: 50%;
   width: 100%;
-  padding: 1vh 0;
 }
 
-.studio-name {
+.lists {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  list-style: none;
+  justify-content: right;
+  align-items: center;
+}
+
+
+
+.lists li{
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+
+.manager-my-page {
+  border: solid 3px gray;
+  padding: 0 20px;
+  border-radius: 40px;
   text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
+  margin-right: 30px;
   font-weight: bold;
+  background-color: #fa5246;
+  margin-left: 30px;
+  color: #00332c;
 }
 
+.user-my-page {
+  border: solid 3px gray;
+  padding: 0 20px;
+  border-radius: 40px;
+  text-decoration: none;
+  margin-right: 30px;
+  font-weight: bold;
+  background-color: #faae2b;
+  margin-left: 30px;
+  color: #00473e;
+}
 
 .logout {
+  border: solid 3px gray;
+  padding: 0 20px;
+  border-radius: 40px;
   text-decoration: none;
-  color: #333333;
+  flex-wrap: nowrap;
+  display: block;
+  text-align: center;
+  color: #00473e;
 }
 
 .login {
+  border: solid 3px gray;
+  padding: 0 20px;
+  border-radius: 40px;
   text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
-  color: #333333;
+  color: #00473e;
 }
 
 .sign-up {
+  border: solid 3px gray;
+  padding: 0 20px;
+  border-radius: 40px;
   text-decoration: none;
   color: #333333;
+  margin-left: 30px;
+  color: #00473e;
 }

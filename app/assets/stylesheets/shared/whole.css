@@ -1,0 +1,49 @@
+.body {
+  background-color: #f2f7f5;
+}
+.body-red {
+  background-color: #fa5246;
+}
+.body-yellow {
+  background-color: #faae2b;
+}
+.body-black {
+  background-color: #00473e;
+}
+.body-reservation-pink {
+  background-color: #ffa8ba;
+}
+
+.content {
+  width: 1000px;
+  margin: auto;
+  padding: 20px 30px;
+}
+
+
+th, td {
+  border: none;
+}
+
+.icon {
+  width: 50px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.detail-subtitle {
+  text-align: left;
+  font-weight: bold;
+  width: 80px;
+}
+
+.detail-content {
+  width: calc(100% - 130px);
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fffffe;
+}

@@ -1,7 +1,14 @@
 <%= render "shared/header" %>
-<h1>Studios#index</h1>
-<p>Find me in app/views/studios/index.html.erb</p>
-
-<% @studios.each do |studio| %>
-<%= link_to studio.manager.studio_name, studio_path(studio.id) %>
-<% end %>
+<div class='body'>
+  <div class='content'>
+    <div class='head-part'>
+      <h1 class='main-title'>練習場・音楽スタジオ予約</h1>
+      <p class='sub-title'>練習場・音楽スタジオ予約が簡単にできます。</p>
+      <p class='sub-title'>Secure Studio Space は練習場所の確保でもう苦労させません。</p>
+    </div>
+    <h2 class='studio-list-title'>スタジオ一覧</h2>
+    <div class='studio-list'>
+      <%= render partial: 'studio', collection: @studios %>
+    </div>
+  </div>
+</div>

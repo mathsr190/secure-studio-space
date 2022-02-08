@@ -1,37 +1,64 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "managers/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true %>
+<%= render "shared/third-header" %>
+<div class='body-red'>
+  <div class='content'>
+    <div class = 'form-content-white'>
+      <h2 class='form-new-edit-title'>スタジオ管理者新規登録</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class='error-messages-div'>
+          <%= render "managers/shared/error_messages", resource: resource %>
+        </div>
+        <div class='form-div'>
+          <div class='form-div-label'>
+            <label>スタジオ名</label>
+            <span class='indispensable'>必須</span>
+          </div>
+          <div class='form-input-div'>
+            <%= f.text_field :studio_name, placeholder:"例) 芸術館", class:"form-input-field"  %>
+          </div>
+        </div>
+        <div class='form-div'>
+          <div class='form-div-label'>
+            <label>スタジオ名 (かな)</label>
+            <span class='indispensable'>必須</span>
+          </div>
+          <div class='form-input-div'>
+            <%= f.text_field :studio_name_kana, placeholder:"例) げいじゅつかん", class:"form-input-field"  %>
+          </div>
+        </div>
+        <div class='form-div'>
+          <div class='form-div-label'>
+            <label>メールアドレス</label>
+            <span class='indispensable'>必須</span>
+          </div>
+          <div class='form-input-div'>
+            <%= f.email_field :email, autofocus: true, class:"form-input-field" %>
+          </div>
+        </div>
+        <div class='form-div'>
+          <div class='form-div-label'>
+            <label>パスワード</label>
+            <span class='indispensable'>必須</span>
+            <p>英字と数字の両方最低1文字必要です</p>
+          </div>
+          <div class='form-input-div'>
+            <%= f.password_field :password, autocomplete: "new-password", placeholder:"6文字以上の半角英数字", class:"form-input-field" %>
+          </div>
+        </div>
+        <div class='form-div'>
+          <div class='form-div-label'>
+            <label>パスワード確認</label>
+            <span class='indispensable'>必須</span>
+          </div>
+          <div class='form-input-div'>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"同じパスワードを入力" , class:"form-input-field" %>
+          </div>
+        </div>
+        <%= f.submit "登録", id:"button", class:"form-submit-btn-manager"%>
+      <% end %>
+      <%#= render "managers/shared/links" %>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.text_area :studio_name, placeholder:"例)芸術館" %>
-  </div>
 
-  <div class="field">
-    <%= f.text_area :studio_name_kana, placeholder:"例)げいじゅつかん" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)英字と数字の両方を含めて設定してください</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "managers/shared/links" %>

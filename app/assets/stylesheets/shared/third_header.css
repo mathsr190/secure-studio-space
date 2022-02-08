@@ -1,0 +1,25 @@
+.t-header {
+  width: 100%;
+  padding: 1vh 0;
+  background-color: #f2f7f5;
+  color: #00473e;
+  border-bottom: solid 1px #00473e;
+}
+
+.t-nav {
+  width: 1000px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.t-nav-left{
+  width: 130px;
+  height: 60px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0 10px;
+  margin: 0;
+}

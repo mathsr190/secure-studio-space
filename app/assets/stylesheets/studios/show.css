@@ -1,4 +1,59 @@
+.studio-name-title {
+  display: block;
+  border-left: 6px double #00332c;
+  border-bottom: 2px solid #00332c;
+  padding: 15px 15px 0;
+  font-size: 22px;
+  margin: 0 0 10px 0;
+  color: #00473e;
+}
+
+.studio-image-and-introduce {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 20px;
+}
+
+.studio-image-div {
+  margin: 20px;
+  width: 480px;
+  height: 270px;
+  background-color: lightgray;
+}
+
 .studio-image {
-  width: 40%;
-  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+
+.studio-introduce {
+  margin: 20px;
+  width: 380px;
+}
+
+.studio-detail-information-title {
+  display: block;
+  border-left: 6px double #00332c;
+  border-bottom: 2px solid #00332c;
+  padding: 15px 15px 0;
+  font-size: 18px;
+  margin: 0 500px 10px 0;
+}
+
+.studio-detail-info {
+  width: 100%;
+}
+
+.studio-edit-btn {
+  text-align: center;
+  background-color: #fa5246;
+  font-size: 24px;
+  width: 300px;
+  font-weight: bold;
+  margin: 10px auto;
+  padding: 20px 10px;
+  border-radius: 10px;
+  text-decoration: none;
 }
