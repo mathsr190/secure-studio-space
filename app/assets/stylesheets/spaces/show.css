@@ -1,7 +1,7 @@
 .space-name-title {
   display: block;
   border-bottom: 2px dashed #fffffe;
-  padding: 5px 15px;
+  padding: 5px 15px 10px;
   margin: 20px 0 0;
   font-size: 22px;
   background-color: #00473e;
@@ -74,7 +74,7 @@
   display: block;
   border-left: 6px double #00332c;
   border-bottom: 2px solid #00332c;
-  padding: 15px 15px 0;
+  padding: 15px;
   font-size: 18px;
   margin: 10px 500px 10px 0;
 }

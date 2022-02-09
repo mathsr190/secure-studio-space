@@ -2,7 +2,7 @@
   display: block;
   border-left: 6px double #00332c;
   border-bottom: 2px solid #00332c;
-  padding: 15px 15px 0;
+  padding: 15px;
   font-size: 22px;
   margin: 0 0 10px 0;
   color: #00473e;
@@ -37,7 +37,7 @@
   display: block;
   border-left: 6px double #00332c;
   border-bottom: 2px solid #00332c;
-  padding: 15px 15px 0;
+  padding: 15px;
   font-size: 18px;
   margin: 0 500px 10px 0;
 }
