@@ -24,4 +24,6 @@ class User < ApplicationRecord
     validates :city
     validates :address
   end
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :prefecture
 end

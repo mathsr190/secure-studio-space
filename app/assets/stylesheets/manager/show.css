@@ -1,3 +1,8 @@
+.mypage-content-manager {
+  width: 900px;
+  margin: auto;
+}
+
 .mypage-title-manager {
   display: block;
   text-align: center;
@@ -8,10 +13,4 @@
   color: #00473e;
   width: 500px;
   padding: 10px;
-}
-
-
-.mypage-content-manager {
-  width: 900px;
-  margin: auto;
 }
