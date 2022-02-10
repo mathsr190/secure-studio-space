@@ -7,5 +7,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: [:studio_name, :studio_name_kana, :group_name, :group_name_kana, :last_name, :first_name, :last_name_kana,
                                              :first_name_kana, :date_of_birth, :phone_number, :postal_code, :prefecture_id, :city, :address, :building])
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: [:studio_name, :studio_name_kana, :group_name, :group_name_kana, :last_name, :first_name, :last_name_kana,
+                                             :first_name_kana, :date_of_birth, :phone_number, :postal_code, :prefecture_id, :city, :address, :building])
   end
 end

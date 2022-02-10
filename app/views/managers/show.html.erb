@@ -1,17 +1,19 @@
-<h1>Managers#show</h1>
-<p>Find me in app/views/managers/show.html.erb</p>
-<% if @manager.studio == nil%>
-  <span>スタジオの登録が完了していません。</span>
-  <p><%= link_to "スタジオ新規登録はこちらをクリックしてください。", new_studio_path, class: :nav__btn %></p>
-<% else %>
-  <span>nilじゃないって</span>
-  <div>
-    <p>登録されているスタジオ<%= @manager.studio_name%>はこちらです</p>
-    <p>スタジオ名</p><%= @manager.studio_name %>
-    <p>スタジオ名(かな)</p><%= @manager.studio_name_kana%>
-    <%= @studio.attributes %>><br/>
-    <p><%= link_to "スタジオ情報を編集するにはスタジオ詳細画面からお願いします。。", studio_path(@studio.id), class: :nav__btn %></p>
-
-    <%= image_tag @studio.image, class: 'studio-image' if @studio.image.attached? %>
+<%= render "shared/third-header" %>
+<div class='body'>
+  <div class='content'>
+    <div class='mypage-content-manager'>
+      <h2 class='mypage-title-manager'>スタジオ情報登録状況</h2>
+      <% if @manager.studio == nil%>
+        <p>SecureStudioSpaceにご登録いただきありがとうございます。</p>
+        <p>スタジオの登録が完了しておりません。下記ボタンからスタジオ登録をお願いいたします。</p>
+        <div class='nav-btn'>
+          <%= link_to "スタジオ新規登録", new_studio_path, class:"form-submit-btn-manager" %>
+        </div>
+      <% else %>
+        <p>SecureStudioSpaceをご活用いただき毎度ありがとうございます。下記のスタジオをご登録いただいております。</p>
+        <p>スタジオ・お部屋の情報を編集するには、各ページの「編集」ボタンからお願いいたします。</p>
+        <%= render partial: 'studios/studio', locals: {studio: @manager.studio} %>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

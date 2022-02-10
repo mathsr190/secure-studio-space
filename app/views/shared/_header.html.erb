@@ -19,7 +19,7 @@
     <div class='lists-div'>
       <ul class='lists'>
         <% if user_signed_in? %>
-          <li><%="ようこそ！#{current_user.last_name}#{current_user.first_name} 様"%></li>
+          <li><%="ようこそ！#{current_user.group_name} 様"%></li>
           <li><%= link_to "マイページ", user_path(current_user.id), class: "user-my-page" %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %> </li> 
         <% else %>

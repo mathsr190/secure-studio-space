@@ -1,12 +1,62 @@
-<h1>Managers#show</h1>
-<p>Find me in app/views/managers/show.html.erb</p>
-<div>ようこそuserマイページ</div>
+<%= render "shared/third-header" %>
+<div class='body'>
+  <div class='content'>
+    <div class='mypage-content-user'>
+      <div class='mypage-user-sentence'>
+        <p>こんにちは、<%= @user.group_name %> 様。</p>
+        <p>SecureStudioSpaceにご登録いただきありがとうございます。</p>
+      </div>
+      <h2 class='mypage-title-user'>予約中のスタジオ</h2>
+      <% if @reservations.blank?%>
+        <div class='mypage-user-sentence'>ご予約情報はありません。</div>
+      <% else %>
+        <table class='reservation-list-user'>
+        <tr>
+          <th>予約番号</th>
+          <th>スタジオ</th>
+          <th>部屋</th>
+          <th>利用予定時間</th>
+          <th>料金(円)</th>
+        </tr>
+        <% @reservations.each do |reservation|%>
+        <tr>
+          <td class='reservation-num'><%=reservation.id%></td>
+          <td class='reservation-studio-name'><%=link_to reservation.space.studio.manager.studio_name, studio_path(reservation.space.studio.id)%></td>
+          <td class='reservation-room-name'><%=link_to reservation.space.space_name, studio_space_path(studio_id: reservation.space.studio.id, id: reservation.space.id)%></td>
+          <td class='reservation-time'><%= "#{reservation.reservation_detail.time_start.strftime("%H:%M")}〜#{reservation.reservation_detail.time_end.strftime("%H:%M")}" %></td>
+          <td class='reservation-price'><%= reservation.reservation_detail.price%></td>
+        </tr>
+        <% end %>
+        </table>
+      <% end %>
 
-<div>予約一覧とか表示させたいねぇ。</div>
-
-<% @reservations.each do |reservation|%>
-  <%= reservation.reservation_detail.attributes %>
-  <%= l reservation.reservation_detail.time_start %>
-<% end %>
-
-<p><%= link_to "トップに戻る", root_path, class: :nav__btn %></p>
+      <h2 class='mypage-title-user'>ユーザー登録情報</h2>
+      <div class='user-registration-info'>
+        <p>現在以下の情報でご登録いただいております。</p>
+        <p>編集するには下の「編集」ボタンからお願いいたします。</p>
+      <table class='user-registration-detail'>
+        <tr>
+          <th>代表者名</th>
+          <td><%= @user.last_name + @user.first_name%></td>
+        </tr>
+        <tr>
+          <th>代表者誕生日</th>
+          <td><%= @user.date_of_birth%></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @user.phone_number%></td>
+        </tr>
+        <tr>
+          <th>連絡先住所</th>
+          <td><%= "〒#{@user.postal_code} " + @user.prefecture.name + @user.city + @user.address + @user.building %></td>
+        </tr>
+        </table>
+      </div>
+      <div class='nav-btn'>
+        <%= link_to "編集", edit_user_registration_path,  class: "form-submit-btn-user" %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
