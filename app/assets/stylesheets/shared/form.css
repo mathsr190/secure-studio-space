@@ -19,6 +19,7 @@
   border-bottom: 2px solid #00332c;
   color: #00473e;
   width: 500px;
+  padding: 10px;
 }
 
 .form-new-edit-subtitle {
@@ -63,6 +64,7 @@
   width: 400px;
   margin: 5px auto;
   font-size: 16px;
+  line-height: 1.3;
 }
 
 .indispensable {
@@ -119,19 +121,7 @@
   font-size: 16px;
 }
 
-.form-submit-btn {
-  display: block;
-  text-align: center;
-  background-color: #fa5246;
-  font-size: 24px;
-  width: 300px;
-  font-weight: bold;
-  margin: 10px auto;
-  padding: 20px 10px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #fffffe;
-}
+
 .form-submit-btn-manager {
   display: block;
   text-align: center;

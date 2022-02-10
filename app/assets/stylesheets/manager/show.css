@@ -1,0 +1,17 @@
+.mypage-title-manager {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  margin: 20px auto;
+  font-weight: bold;
+  border-bottom: 2px solid #00332c;
+  color: #00473e;
+  width: 500px;
+  padding: 10px;
+}
+
+
+.mypage-content-manager {
+  width: 900px;
+  margin: auto;
+}
