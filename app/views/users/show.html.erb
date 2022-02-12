@@ -23,7 +23,7 @@
           <td class='reservation-num'><%=reservation.id%></td>
           <td class='reservation-studio-name'><%=link_to reservation.space.studio.manager.studio_name, studio_path(reservation.space.studio.id)%></td>
           <td class='reservation-room-name'><%=link_to reservation.space.space_name, studio_space_path(studio_id: reservation.space.studio.id, id: reservation.space.id)%></td>
-          <td class='reservation-time'><%= "#{reservation.reservation_detail.time_start.strftime("%H:%M")}〜#{reservation.reservation_detail.time_end.strftime("%H:%M")}" %></td>
+          <td class='reservation-time'><%= "#{reservation.reservation_detail.time_start.strftime("%F %H:%M")}〜#{reservation.reservation_detail.time_end.strftime("%F %H:%M分")}" %></td>
           <td class='reservation-price'><%= reservation.reservation_detail.price%></td>
         </tr>
         <% end %>
