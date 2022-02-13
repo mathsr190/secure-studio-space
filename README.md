@@ -211,11 +211,14 @@ deviseを用いて実装。ログイン後はトップページに遷移し、�
 
 # ローカルでの動作方法
 clone後は初めに
-rails db:migrate:reset
-rails db:seed
+
+- rails db:migrate:reset
+- rails db:seed
+
 を実行してください。
 
 ## Version情報
-ruby '2.6.5'
-rails '6.0.0'
-mysql2 '0.4.4'
+
+- ruby '2.6.5'
+- rails '6.0.0'
+- mysql2 '0.4.4'
