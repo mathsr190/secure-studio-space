@@ -22,41 +22,47 @@
 
 .reservation-list-user {
   margin: auto;
+  width: 900px;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
+
 .reservation-list-user tr:nth-child(even) {
   background-color: lightgray;
 }
 
 .reservation-list-user th, .reservation-list-user td {
   border: 1px solid #475d5b;
-  padding: 10px;
+  padding: 5px;
 }
 
 .reservation-list-user th {
-  text-weight: bold;
+  font-weight: bold;
   font-size: 20px;
   border-bottom: 3px solid #475d5b;
 }
 
 
 .reservation-num {
-  width: 110px;
+  width: 100px;
   text-align: end;
 }
 
 .reservation-studio-name {
-  width: 260px;
+  width: 190px;
 }
 
 .reservation-room-name {
-  width: 260px;
+  width: 190px;
 }
 
 .reservation-time {
+  width: 300px;
   text-align: center;
 }
 
 .reservation-price {
+  width: 100px;
   text-align: end;
 }
 
@@ -66,15 +72,18 @@
 }
 
 .user-registration-detail {
-  width: 450px;
+  width: 480px;
   margin: auto;
-  margin: 10px;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 
-.user-registration-detail th, .user-registration-detail td {
+.user-registration-detail-th {
+  width: 70px;
+  padding: 5px;
+}
+
+.user-registration-detail-td {
+  width: 220px;
   padding: 10px;
-}
-
-.user-registration-detail th{
-  width: 120px;
 }

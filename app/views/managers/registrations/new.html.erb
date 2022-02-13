@@ -13,7 +13,7 @@
             <span class='indispensable'>必須</span>
           </div>
           <div class='form-input-div'>
-            <%= f.text_field :studio_name, placeholder:"例) 芸術館", class:"form-input-field"  %>
+            <%= f.text_field :studio_name, autofocus: true, placeholder:"例) 芸術館", class:"form-input-field"  %>
           </div>
         </div>
         <div class='form-div'>
@@ -31,7 +31,7 @@
             <span class='indispensable'>必須</span>
           </div>
           <div class='form-input-div'>
-            <%= f.email_field :email, autofocus: true, class:"form-input-field" %>
+            <%= f.email_field :email, class:"form-input-field" %>
           </div>
         </div>
         <div class='form-div'>
