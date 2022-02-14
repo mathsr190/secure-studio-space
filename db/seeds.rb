@@ -142,5 +142,11 @@ test_user_1 = User.create(
   first_name: "記号",
   last_name_kana: "じゃく",
   first_name_kana: "きごう",
-  date_of_birth: ""
+  date_of_birth: "1991-01-01",
+  phone_number: "09011111111",
+  postal_code: "111-1111",
+  prefecture_id: "1",
+  city: "ピアニッシモ市",
+  address: "弱記号区1",
+  building: "ミュート01"
 )
