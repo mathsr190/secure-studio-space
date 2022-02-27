@@ -4,6 +4,7 @@ Secure Studio Space
 音楽活動の練習部屋(space)を予約できます。
 スタジオ管理者はスタジオ(studio)の情報、および部屋の情報を登録・編集できます。
 利用者側はスタジオ情報の閲覧、部屋の予約ができます。
+(まだ開発途中でございます。最低限の機能を実装いたしました。)
 
 # URL
 https://secure-studio-space.herokuapp.com/
